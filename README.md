@@ -1,6 +1,7 @@
 LEADERG Robot SDK
 =================
 LEADERG Robot SDK is a cross platform robot software development kit. It's released by GT LICENSE #1.  
+Please visit our website (http://www.leaderg.com/dir/index?sn=1016) for detail API document and discussion.   
   
 GT LICENSE #1
 =======
