@@ -90,7 +90,7 @@ extern "C"
 {
 #endif
     
-int GtLib_InitLib();
+GT_API int GtLib_InitLib();
 
 #ifdef __cplusplus
 }
