@@ -30,7 +30,7 @@ extern "C"
 
 static int gtLibIsInit = 0;
    
-int GtLib_InitLib() {
+GT_API int GtLib_InitLib() {
 	if (gtLibIsInit == 1) {
 		return GT_OK_INIT_ALREADY;
 	}
