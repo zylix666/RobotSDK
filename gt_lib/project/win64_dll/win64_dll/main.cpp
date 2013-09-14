@@ -6,6 +6,7 @@
 
 
 __declspec(dllexport) void hello();
+__declspec(dllexport) int test();
 
 
 void hello()
@@ -13,3 +14,7 @@ void hello()
 	printf("hello world!");
 }
 
+int test()
+{
+	return 199;
+}

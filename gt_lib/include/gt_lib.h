@@ -11,7 +11,7 @@
 #define GT_LIB_VERSION "1.10.0"
 #define GT_LIB_DATETIME (201308260036ul)
 
-//#include "gt_config.h"
+#include "gt_config.h"
 
 /* Common libraries ++ */
 #include <stdio.h>

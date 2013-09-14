@@ -1,9 +1,16 @@
-﻿Build started 2013/9/14 下午 03:58:39.
-     1>Project "C:\Users\vince\Documents\GitHub\RobotSDK\gt_lib\project\win64_dll\win64_dll\win64_dll\win64_dll.vcxproj" on node 2 (Build target(s)).
-     1>Link:
-         win64_dll.vcxproj -> C:\Users\vince\Documents\GitHub\RobotSDK\gt_lib\project\win64_dll\win64_dll\x64\Release\win64_dll.dll
-     1>Done Building Project "C:\Users\vince\Documents\GitHub\RobotSDK\gt_lib\project\win64_dll\win64_dll\win64_dll\win64_dll.vcxproj" (Build target(s)).
+﻿Build started 2013/9/14 下午 05:27:14.
+     1>Project "C:\Users\vince\Documents\GitHub\RobotSDK\gt_lib\project\win64_dll\win64_dll\win64_dll.vcxproj" on node 2 (Rebuild target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\CL.exe /c /I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v5.5\include" /IC:\Users\vince\Documents\GitHub\RobotSDK\gt_lib\project\win64_dll\win64_dll /IC:\Users\vince\Documents\GitHub\RobotSDK\gt_lib\include /I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v5.5\include" /Zi /nologo /W3 /WX- /O2 /Oi /GL /D WIN32 /D NDEBUG /D _WINDOWS /D _USRDLL /D WIN64_DLL_EXPORTS /D _WINDLL /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Release\\" /Fd"x64\Release\vc110.pdb" /Gd /TP /errorReport:prompt main.cpp
+         main.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\vince\Documents\GitHub\RobotSDK\gt_lib\project\win64_dll\x64\Release\win64_dll.dll" /INCREMENTAL:NO /NOLOGO /LIBPATH:"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v5.5\lib\x64" /LIBPATH:"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v5.5\lib\x64" cublas.lib cublas_device.lib cuda.lib cudadevrt.lib cudart.lib cudart_static.lib cufft.lib cufftw.lib curand.lib cusparse.lib nppc.lib nppi.lib npps.lib nvcuvenc.lib nvcuvid.lib OpenCL.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\vince\Documents\GitHub\RobotSDK\gt_lib\project\win64_dll\x64\Release\win64_dll.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\vince\Documents\GitHub\RobotSDK\gt_lib\project\win64_dll\x64\Release\win64_dll.lib" /MACHINE:X64 /DLL x64\Release\main.obj
+            Creating library C:\Users\vince\Documents\GitHub\RobotSDK\gt_lib\project\win64_dll\x64\Release\win64_dll.lib and object C:\Users\vince\Documents\GitHub\RobotSDK\gt_lib\project\win64_dll\x64\Release\win64_dll.exp
+         Generating code
+         Finished generating code
+         win64_dll.vcxproj -> C:\Users\vince\Documents\GitHub\RobotSDK\gt_lib\project\win64_dll\x64\Release\win64_dll.dll
+     1>Done Building Project "C:\Users\vince\Documents\GitHub\RobotSDK\gt_lib\project\win64_dll\win64_dll\win64_dll.vcxproj" (Rebuild target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.03
+Time Elapsed 00:00:00.96
