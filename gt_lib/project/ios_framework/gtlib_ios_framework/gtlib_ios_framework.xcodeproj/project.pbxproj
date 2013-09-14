@@ -41,6 +41,7 @@
 		562273B217E3FBB400CC4184 /* gt_timer_us.c in Sources */ = {isa = PBXBuildFile; fileRef = 5622736A17E3FBB400CC4184 /* gt_timer_us.c */; };
 		562273B317E3FBB400CC4184 /* gt_utf8.c in Sources */ = {isa = PBXBuildFile; fileRef = 5622736B17E3FBB400CC4184 /* gt_utf8.c */; };
 		562273BB17E3FF0B00CC4184 /* gt_lib.c in Sources */ = {isa = PBXBuildFile; fileRef = 562273BA17E3FF0B00CC4184 /* gt_lib.c */; };
+		562273BD17E40C9B00CC4184 /* git_lib_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = 562273BC17E40C3F00CC4184 /* git_lib_ios.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		5622736B17E3FBB400CC4184 /* gt_utf8.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gt_utf8.c; sourceTree = "<group>"; };
 		562273B817E3FEFB00CC4184 /* gt_lib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gt_lib.h; sourceTree = "<group>"; };
 		562273BA17E3FF0B00CC4184 /* gt_lib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gt_lib.c; sourceTree = "<group>"; };
+		562273BC17E40C3F00CC4184 /* git_lib_ios.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = git_lib_ios.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 		5622731617E3F9C200CC4184 /* gtlib_ios_framework */ = {
 			isa = PBXGroup;
 			children = (
+				562273BC17E40C3F00CC4184 /* git_lib_ios.h */,
 				5622732217E3FBB400CC4184 /* include */,
 				5622734917E3FBB400CC4184 /* src */,
 				5622731717E3F9C200CC4184 /* Supporting Files */,
@@ -197,6 +200,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				562273BD17E40C9B00CC4184 /* git_lib_ios.h in Headers */,
 				5622736C17E3FBB400CC4184 /* gt_array.h in Headers */,
 				5622736E17E3FBB400CC4184 /* gt_buffer.h in Headers */,
 				5622736F17E3FBB400CC4184 /* gt_color.h in Headers */,
