@@ -5,42 +5,17 @@
 
 
 ROOT = /home/evan/RobotSDK
-OUTPUT = libgt.so
-OUTPUTDIR = $(ROOT)/gt_lib/project/linux64_so
+OUTPUT = gt_httpd
+OUTPUTDIR = $(ROOT)/gt_lib/project/linux64_so_console
 
 
 SOURCES = \
-../../src/gt_array.c \
-../../src/gt_buffer.c \
-../../src/gt_color.c \
-../../src/gt_config_parser.c \
-../../src/gt_fifo.c \
-../../src/gt_file.c \
-../../src/gt_hash.c \
-../../src/gt_hash_map.c \
-../../src/gt_http.c \
-../../src/gt_httpd.c \
-../../src/gt_lib.c \
-../../src/gt_lock.c \
-../../src/gt_log.c \
-../../src/gt_matrix.c \
-../../src/gt_mem.c \
-../../src/gt_runtime.c \
-../../src/gt_semaphore.c \
-../../src/gt_timer_us.c \
-../../src/gt_stack.c \
-../../src/gt_string.c \
-../../src/gt_utf8.c \
-../../src/gt_matrix.c \
-../../src/gt_template.c \
-../../../third_party/hash/sha1.c \
-../../../third_party/hash/sha256.c \
-../../../third_party/hash/md5c.c
-
-
+main.c
 
 # Include directory settings
-IDIR        := -I$(ROOT)/gt_lib/include -I$(ROOT)/third_party/hash -I$(ROOT)/gt_lib/project/linux64_so
+IDIR        := -I$(ROOT)/gt_lib/include -I$(ROOT)/third_party/hash -I$(ROOT)/gt_lib/project/linux64_so_console
+# Lib directory settings
+LDFLAGS := -L$(ROOT)/gt_lib/project/linux64_so -Wl,-rpath=$(ROOT)/gt_lib/project/linux64_so
 
 
 THIS_MAKEFILE_PATH:=$(word $(words $(MAKEFILE_LIST)),$(MAKEFILE_LIST))
@@ -58,7 +33,7 @@ NVCC_PATH              = /usr/local/cuda-5.0
 
 
 # Compiler flags
-CFLAGS          += -O2 -Wall -I$(THIS_MAKEFILE_DIR) $(IDIR) -I$(TOOLCHAIN_INCLUDE_PATH) -fPIC -shared
+CFLAGS          += -O2 -Wall -I$(THIS_MAKEFILE_DIR) $(IDIR) -I$(TOOLCHAIN_INCLUDE_PATH) 
 CFLAGS          += -mmmx -msse -msse2
 # CFLAGS          += -std=c99 
 CXXFLAGS        += -static -O2 -Wall -I$(THIS_MAKEFILE_DIR) -I$(IDIR) -I$(IDIR) -I$(TOOLCHAIN_INCLUDE_PATH)
@@ -69,7 +44,7 @@ EXTRA_CFLAGS    +=
 EXTRA_CXXFLAGS  += 
 EXTRA_NVCCFLAGS += 
 EXTRA_LFLAGS    +=
-EXTRA_LIBS      += -lpthread -lm
+EXTRA_LIBS      += -lpthread -lm -lgt
 
 
 # Compiler commands
@@ -115,14 +90,14 @@ all :  $(APP)
 
 
 $(APP)  : $(OBJECTS)
-	@echo "Target is APP : libgt.so"
-	$(CC) $(CFLAGS) $(EXTRA_CFLAGS) $(EXTRA_LFLAGS) $^  $(CLIBS) $(EXTRA_LIBS) -o $(OUTPUTDIR)/$(OUTPUT)
+	@echo "Target is APP : $@"
+	$(CC) $(CFLAGS) $(EXTRA_CFLAGS) $(EXTRA_LFLAGS)  $^  $(CLIBS) $(LDFLAGS) $(EXTRA_LIBS) -o $(OUTPUTDIR)/$@
 
 
 # The way to compile c source files.
 %.o : %.c
 	@echo "Compiling C source file: $<"
-	$(CC) $(EXTRA_CFLAGS) $(CFLAGS) -c $< -o $@     
+	$(CC) $(EXTRA_CFLAGS) $(CFLAGS) $(LFLAGS) -c $< -o $@     
 
 
 # The way to compile cpp source files.
