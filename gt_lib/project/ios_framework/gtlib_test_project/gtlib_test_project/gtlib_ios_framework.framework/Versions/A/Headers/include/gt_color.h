@@ -75,6 +75,8 @@ extern "C"
 {
 #endif
 
+int GtColor_InitLib();
+    
 GtColor_t *GtColor_New();
 
 int GtColor_Free(GtColor_t *color);

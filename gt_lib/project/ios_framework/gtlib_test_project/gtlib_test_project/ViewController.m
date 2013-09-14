@@ -19,8 +19,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    
-    [self testGtBuffer];
+    [self testGtArray];
+    [self testGtColor];
     NSLog(@"ViewController viewDidLoad");
 }
 
@@ -31,10 +31,12 @@
 }
 
 - (void)testGtArray{
+    NSLog(@"testGtArray begin------------------------------");
+    
     GtArray_InitLib();
     GtArray_t *array = GtArray_New();
     
-    gt_utf8 elementType = 'i';
+    gt_utf8 elementType = ' ';
     
     GtArray_Init(array, &elementType, sizeof(int), 5);
     for(int i=0; i<3 ;i++){
@@ -46,10 +48,19 @@
         void *element = GtArray_Get(array, i);
         NSLog(@"element %d: %d", i, *((int *)element));
     }
+
+    NSLog(@"testGtArray end------------------------------");
 }
 
-- (void)testGtBuffer{
- 
+- (void)testGtColor{
+    NSLog(@"testGtColor begin------------------------------");
+    GtColor_InitLib();
+    
+    GtColor_t *color = GtColor_New();
+    GtColor_SetRGB888(color, 0xFF, 0xAA, 0x22);
+    NSLog(@"color: %d %d %d", color->red8, color->green8, color->blue8);
+    
+    NSLog(@"testGtColor end------------------------------");
 }
 
 @end
