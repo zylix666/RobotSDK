@@ -35,8 +35,6 @@ typedef struct {
 	GT_MAGIC_t magic;
 } GtHashMap_t;
 
-int GtHashMap_InitLib();
-    
 GtHashMap_t *GtHashMap_New();
 
 int GtHashMap_Free(GtHashMap_t *hashMap);

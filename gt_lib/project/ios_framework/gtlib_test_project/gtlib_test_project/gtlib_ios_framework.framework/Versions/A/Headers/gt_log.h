@@ -47,6 +47,8 @@ extern "C" {
         #define GT_LOGI(...) {}
         #define GT_LOGE(...) {}
     #endif
+#elif defined(GT_CONFIG_WINDOWS)
+
 #else
     #error OS is not defined!
 #endif

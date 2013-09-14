@@ -67,8 +67,7 @@
 #include "gt_math.h"
 #include "gt_buffer.h"
 #include "gt_array.h"
-//FIXME:remove temporarily
-//#include "gt_hash.h"
+#include "gt_hash.h"
 #include "gt_hash_map.h"
 #include "gt_semaphore.h"
 #include "gt_utf8.h"
