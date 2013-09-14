@@ -8,41 +8,49 @@
 
 using namespace std;
 
+//------------dll import-----------------------
 
 typedef int (*testfunc)(void);
+typedef void (*hellofunc)(void);
+
+//---------------------------------------------
 
 
 int main(){
 
-//printf("123\n");
-
-
-
+//define dll function name
  testfunc test1 ;
+ hellofunc hello1;
 
+ //call dll
  HINSTANCE hLibrary = LoadLibrary(L"win64_dll.dll");
 
+ //check the function of dll
  if(hLibrary)
  {
  test1 = (testfunc)GetProcAddress(hLibrary, "test");
-
-
- if(test1)
- {
-
-
- int a=test1();
- printf("%d",a);
- }
-
- FreeLibrary(hLibrary);
+ hello1= (hellofunc)GetProcAddress(hLibrary, "hello");
  }
  else
  {
- std::cout << "Failed To Load Library" << std::endl;
+	 printf("Failed To Load Library\n");
  }
+
+
+ //test
+ if(test1)
+ {
+
+ printf("%d\n",test1());
+ hello1();
+
+ }
+
  
-system("pause");
+ 
+
+ FreeLibrary(hLibrary);
+ system("pause");
 
 
 

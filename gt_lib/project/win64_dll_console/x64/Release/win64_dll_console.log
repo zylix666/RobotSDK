@@ -1,4 +1,4 @@
-﻿Build started 2013/9/14 下午 05:29:24.
+﻿Build started 2013/9/14 下午 05:47:47.
      1>Project "C:\Users\vince\Documents\GitHub\RobotSDK\gt_lib\project\win64_dll_console\win64_dll_console.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\CL.exe /c /IC:\Users\vince\Documents\GitHub\RobotSDK\gt_lib\project\win64_dll_console\gtlib\include /Zi /nologo /W3 /WX- /O2 /Oi /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Release\\" /Fd"x64\Release\vc110.pdb" /Gd /TP /errorReport:prompt win64_dll_console.cpp
@@ -12,4 +12,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.94
+Time Elapsed 00:00:00.97

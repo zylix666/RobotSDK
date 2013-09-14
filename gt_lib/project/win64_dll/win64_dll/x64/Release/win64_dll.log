@@ -1,5 +1,5 @@
-﻿Build started 2013/9/14 下午 05:27:14.
-     1>Project "C:\Users\vince\Documents\GitHub\RobotSDK\gt_lib\project\win64_dll\win64_dll\win64_dll.vcxproj" on node 2 (Rebuild target(s)).
+﻿Build started 2013/9/14 下午 05:36:45.
+     1>Project "C:\Users\vince\Documents\GitHub\RobotSDK\gt_lib\project\win64_dll\win64_dll\win64_dll.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\CL.exe /c /I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v5.5\include" /IC:\Users\vince\Documents\GitHub\RobotSDK\gt_lib\project\win64_dll\win64_dll /IC:\Users\vince\Documents\GitHub\RobotSDK\gt_lib\include /I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v5.5\include" /Zi /nologo /W3 /WX- /O2 /Oi /GL /D WIN32 /D NDEBUG /D _WINDOWS /D _USRDLL /D WIN64_DLL_EXPORTS /D _WINDLL /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Release\\" /Fd"x64\Release\vc110.pdb" /Gd /TP /errorReport:prompt main.cpp
          main.cpp
@@ -9,8 +9,8 @@
          Generating code
          Finished generating code
          win64_dll.vcxproj -> C:\Users\vince\Documents\GitHub\RobotSDK\gt_lib\project\win64_dll\x64\Release\win64_dll.dll
-     1>Done Building Project "C:\Users\vince\Documents\GitHub\RobotSDK\gt_lib\project\win64_dll\win64_dll\win64_dll.vcxproj" (Rebuild target(s)).
+     1>Done Building Project "C:\Users\vince\Documents\GitHub\RobotSDK\gt_lib\project\win64_dll\win64_dll\win64_dll.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.96
+Time Elapsed 00:00:00.67
