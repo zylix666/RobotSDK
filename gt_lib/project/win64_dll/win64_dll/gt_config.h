@@ -41,6 +41,8 @@ extern "C"
 
 #define GT_CONFIG_OCL 1
 
+#define GT_CONFIG_EXPORT_API
+
 #ifdef __cplusplus
 }
 #endif
