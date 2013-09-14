@@ -1,0 +1,9 @@
+﻿Build started 2013/9/14 下午 03:58:39.
+     1>Project "C:\Users\vince\Documents\GitHub\RobotSDK\gt_lib\project\win64_dll\win64_dll\win64_dll\win64_dll.vcxproj" on node 2 (Build target(s)).
+     1>Link:
+         win64_dll.vcxproj -> C:\Users\vince\Documents\GitHub\RobotSDK\gt_lib\project\win64_dll\win64_dll\x64\Release\win64_dll.dll
+     1>Done Building Project "C:\Users\vince\Documents\GitHub\RobotSDK\gt_lib\project\win64_dll\win64_dll\win64_dll\win64_dll.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.03
