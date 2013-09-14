@@ -8,8 +8,8 @@
 #ifndef __GT_LIB_H__
 #define __GT_LIB_H__
 
-#define GT_LIB_VERSION "1.10.0"
-#define GT_LIB_DATETIME (201308260036ul)
+#define GT_LIB_VERSION "1.11.0"
+#define GT_LIB_DATETIME (201309141758ul)
 
 #include "gt_config.h"
 
