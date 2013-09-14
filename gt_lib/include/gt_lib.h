@@ -11,7 +11,7 @@
 #define GT_LIB_VERSION "1.10.0"
 #define GT_LIB_DATETIME (201308260036ul)
 
-#include "gt_config.h"
+//#include "gt_config.h"
 
 /* Common libraries ++ */
 #include <stdio.h>
@@ -23,6 +23,8 @@
 #include <wctype.h>
 #include <math.h>
 
+/* FIXME:marked temporarily
+ 
 #if defined(GT_CONFIG_LINUX)
 	#include <sys/types.h>
 	#include <unistd.h>
@@ -55,6 +57,7 @@
 #endif
 
 #endif
+ */
 /* Common libraries -- */
 
 /* Core libraries ++ */
