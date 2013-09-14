@@ -19,7 +19,7 @@
 		562273E417E40D5000CC4184 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 562273E217E40D5000CC4184 /* MainStoryboard_iPhone.storyboard */; };
 		562273E717E40D5000CC4184 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 562273E517E40D5000CC4184 /* MainStoryboard_iPad.storyboard */; };
 		562273EA17E40D5000CC4184 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 562273E917E40D5000CC4184 /* ViewController.m */; };
-		562273F117E40DBC00CC4184 /* gtlib_ios_framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 562273F017E40DBC00CC4184 /* gtlib_ios_framework.framework */; };
+		562275AB17E4179F00CC4184 /* gtlib_ios_framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 562273F017E40DBC00CC4184 /* gtlib_ios_framework.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,7 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				562273F117E40DBC00CC4184 /* gtlib_ios_framework.framework in Frameworks */,
+				562275AB17E4179F00CC4184 /* gtlib_ios_framework.framework in Frameworks */,
 				562273CB17E40D5000CC4184 /* UIKit.framework in Frameworks */,
 				562273CD17E40D5000CC4184 /* Foundation.framework in Frameworks */,
 				562273CF17E40D5000CC4184 /* CoreGraphics.framework in Frameworks */,
@@ -285,6 +285,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "gtlib_test_project/gtlib_test_project-Prefix.pch";
 				INFOPLIST_FILE = "gtlib_test_project/gtlib_test_project-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -300,6 +301,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "gtlib_test_project/gtlib_test_project-Prefix.pch";
 				INFOPLIST_FILE = "gtlib_test_project/gtlib_test_project-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -324,6 +326,7 @@
 				562273EF17E40D5000CC4184 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

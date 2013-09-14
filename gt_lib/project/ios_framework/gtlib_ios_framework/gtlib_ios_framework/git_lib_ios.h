@@ -9,24 +9,28 @@
 #ifndef gtlib_ios_framework_git_lib_ios_h
 #define gtlib_ios_framework_git_lib_ios_h
 
-#include "gt_ret.h"
-#include "gt_magic.h"
-#include "gt_type.h"
-#include "gt_mem.h"
-#include "gt_lock.h"
-#include "gt_math.h"
-#include "gt_buffer.h"
-#include "gt_array.h"
+#define GT_CONFIG_IOS
+#define GT_CONFIG_LLVM
+#define GT_CONFIG_ARM
+
+#include "include/gt_array.h"
+#include "include/gt_buffer.h"
+#include "include/gt_color.h"
+#include "include/gt_file.h"
 //FIXME:remove temporarily
-//#include "gt_hash.h"
-#include "gt_hash_map.h"
-#include "gt_semaphore.h"
-#include "gt_utf8.h"
-#include "gt_string.h"
-#include "gt_file.h"
-#include "gt_log.h"
-#include "gt_runtime.h"
-#include "gt_timer_us.h"
-#include "gt_color.h"
+//#include "include/gt_hash.h"
+#include "include/gt_hash_map.h"
+#include "include/gt_lock.h"
+#include "include/gt_log.h"
+#include "include/gt_magic.h"
+#include "include/gt_math.h"
+#include "include/gt_mem.h"
+#include "include/gt_ret.h"
+#include "include/gt_runtime.h"
+#include "include/gt_semaphore.h"
+#include "include/gt_string.h"
+#include "include/gt_timer_us.h"
+#include "include/gt_type.h"
+#include "include/gt_utf8.h"
 
 #endif
