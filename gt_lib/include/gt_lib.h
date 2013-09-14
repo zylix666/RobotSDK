@@ -13,7 +13,7 @@
 
 #include "gt_config.h"
 
-#ifdef GT_CONFIG_EXPORT_GT_API
+#ifdef GT_CONFIG_EXPORT_API
   #define GT_API __declspec(dllexport)
 #else
   #define GT_API
