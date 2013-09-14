@@ -13,7 +13,6 @@
 		5622736E17E3FBB400CC4184 /* gt_buffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 5622732517E3FBB400CC4184 /* gt_buffer.h */; };
 		5622736F17E3FBB400CC4184 /* gt_color.h in Headers */ = {isa = PBXBuildFile; fileRef = 5622732617E3FBB400CC4184 /* gt_color.h */; };
 		5622737217E3FBB400CC4184 /* gt_file.h in Headers */ = {isa = PBXBuildFile; fileRef = 5622732917E3FBB400CC4184 /* gt_file.h */; };
-		5622737317E3FBB400CC4184 /* gt_hash.h in Headers */ = {isa = PBXBuildFile; fileRef = 5622732A17E3FBB400CC4184 /* gt_hash.h */; };
 		5622737417E3FBB400CC4184 /* gt_hash_map.h in Headers */ = {isa = PBXBuildFile; fileRef = 5622732B17E3FBB400CC4184 /* gt_hash_map.h */; };
 		5622737E17E3FBB400CC4184 /* gt_lock.h in Headers */ = {isa = PBXBuildFile; fileRef = 5622733517E3FBB400CC4184 /* gt_lock.h */; };
 		5622737F17E3FBB400CC4184 /* gt_log.h in Headers */ = {isa = PBXBuildFile; fileRef = 5622733617E3FBB400CC4184 /* gt_log.h */; };
@@ -31,7 +30,6 @@
 		5622739417E3FBB400CC4184 /* gt_buffer.c in Sources */ = {isa = PBXBuildFile; fileRef = 5622734C17E3FBB400CC4184 /* gt_buffer.c */; };
 		5622739517E3FBB400CC4184 /* gt_color.c in Sources */ = {isa = PBXBuildFile; fileRef = 5622734D17E3FBB400CC4184 /* gt_color.c */; };
 		5622739817E3FBB400CC4184 /* gt_file.c in Sources */ = {isa = PBXBuildFile; fileRef = 5622735017E3FBB400CC4184 /* gt_file.c */; };
-		5622739917E3FBB400CC4184 /* gt_hash.c in Sources */ = {isa = PBXBuildFile; fileRef = 5622735117E3FBB400CC4184 /* gt_hash.c */; };
 		5622739A17E3FBB400CC4184 /* gt_hash_map.c in Sources */ = {isa = PBXBuildFile; fileRef = 5622735217E3FBB400CC4184 /* gt_hash_map.c */; };
 		562273A417E3FBB400CC4184 /* gt_lock.c in Sources */ = {isa = PBXBuildFile; fileRef = 5622735C17E3FBB400CC4184 /* gt_lock.c */; };
 		562273A517E3FBB400CC4184 /* gt_log.c in Sources */ = {isa = PBXBuildFile; fileRef = 5622735D17E3FBB400CC4184 /* gt_log.c */; };
@@ -42,7 +40,6 @@
 		562273AF17E3FBB400CC4184 /* gt_string.c in Sources */ = {isa = PBXBuildFile; fileRef = 5622736717E3FBB400CC4184 /* gt_string.c */; };
 		562273B217E3FBB400CC4184 /* gt_timer_us.c in Sources */ = {isa = PBXBuildFile; fileRef = 5622736A17E3FBB400CC4184 /* gt_timer_us.c */; };
 		562273B317E3FBB400CC4184 /* gt_utf8.c in Sources */ = {isa = PBXBuildFile; fileRef = 5622736B17E3FBB400CC4184 /* gt_utf8.c */; };
-		562273B917E3FEFB00CC4184 /* gt_lib.h in Headers */ = {isa = PBXBuildFile; fileRef = 562273B817E3FEFB00CC4184 /* gt_lib.h */; };
 		562273BB17E3FF0B00CC4184 /* gt_lib.c in Sources */ = {isa = PBXBuildFile; fileRef = 562273BA17E3FF0B00CC4184 /* gt_lib.c */; };
 /* End PBXBuildFile section */
 
@@ -56,7 +53,6 @@
 		5622732517E3FBB400CC4184 /* gt_buffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gt_buffer.h; sourceTree = "<group>"; };
 		5622732617E3FBB400CC4184 /* gt_color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gt_color.h; sourceTree = "<group>"; };
 		5622732917E3FBB400CC4184 /* gt_file.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gt_file.h; sourceTree = "<group>"; };
-		5622732A17E3FBB400CC4184 /* gt_hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gt_hash.h; sourceTree = "<group>"; };
 		5622732B17E3FBB400CC4184 /* gt_hash_map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gt_hash_map.h; sourceTree = "<group>"; };
 		5622733517E3FBB400CC4184 /* gt_lock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gt_lock.h; sourceTree = "<group>"; };
 		5622733617E3FBB400CC4184 /* gt_log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gt_log.h; sourceTree = "<group>"; };
@@ -74,7 +70,6 @@
 		5622734C17E3FBB400CC4184 /* gt_buffer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gt_buffer.c; sourceTree = "<group>"; };
 		5622734D17E3FBB400CC4184 /* gt_color.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gt_color.c; sourceTree = "<group>"; };
 		5622735017E3FBB400CC4184 /* gt_file.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gt_file.c; sourceTree = "<group>"; };
-		5622735117E3FBB400CC4184 /* gt_hash.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gt_hash.c; sourceTree = "<group>"; };
 		5622735217E3FBB400CC4184 /* gt_hash_map.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gt_hash_map.c; sourceTree = "<group>"; };
 		5622735C17E3FBB400CC4184 /* gt_lock.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gt_lock.c; sourceTree = "<group>"; };
 		5622735D17E3FBB400CC4184 /* gt_log.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gt_log.c; sourceTree = "<group>"; };
@@ -154,7 +149,6 @@
 				5622732517E3FBB400CC4184 /* gt_buffer.h */,
 				5622732617E3FBB400CC4184 /* gt_color.h */,
 				5622732917E3FBB400CC4184 /* gt_file.h */,
-				5622732A17E3FBB400CC4184 /* gt_hash.h */,
 				5622732B17E3FBB400CC4184 /* gt_hash_map.h */,
 				5622733517E3FBB400CC4184 /* gt_lock.h */,
 				5622733617E3FBB400CC4184 /* gt_log.h */,
@@ -181,7 +175,6 @@
 				5622734C17E3FBB400CC4184 /* gt_buffer.c */,
 				5622734D17E3FBB400CC4184 /* gt_color.c */,
 				5622735017E3FBB400CC4184 /* gt_file.c */,
-				5622735117E3FBB400CC4184 /* gt_hash.c */,
 				5622735217E3FBB400CC4184 /* gt_hash_map.c */,
 				5622735C17E3FBB400CC4184 /* gt_lock.c */,
 				5622735D17E3FBB400CC4184 /* gt_log.c */,
@@ -208,7 +201,6 @@
 				5622736E17E3FBB400CC4184 /* gt_buffer.h in Headers */,
 				5622736F17E3FBB400CC4184 /* gt_color.h in Headers */,
 				5622737217E3FBB400CC4184 /* gt_file.h in Headers */,
-				5622737317E3FBB400CC4184 /* gt_hash.h in Headers */,
 				5622737417E3FBB400CC4184 /* gt_hash_map.h in Headers */,
 				5622737E17E3FBB400CC4184 /* gt_lock.h in Headers */,
 				5622737F17E3FBB400CC4184 /* gt_log.h in Headers */,
@@ -222,7 +214,6 @@
 				5622738F17E3FBB400CC4184 /* gt_timer_us.h in Headers */,
 				5622739017E3FBB400CC4184 /* gt_type.h in Headers */,
 				5622739117E3FBB400CC4184 /* gt_utf8.h in Headers */,
-				562273B917E3FEFB00CC4184 /* gt_lib.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,7 +329,6 @@
 				5622739417E3FBB400CC4184 /* gt_buffer.c in Sources */,
 				5622739517E3FBB400CC4184 /* gt_color.c in Sources */,
 				5622739817E3FBB400CC4184 /* gt_file.c in Sources */,
-				5622739917E3FBB400CC4184 /* gt_hash.c in Sources */,
 				5622739A17E3FBB400CC4184 /* gt_hash_map.c in Sources */,
 				562273A417E3FBB400CC4184 /* gt_lock.c in Sources */,
 				562273A517E3FBB400CC4184 /* gt_log.c in Sources */,
@@ -432,6 +422,13 @@
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "gtlib_ios_framework/gtlib_ios_framework-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					GT_CONFIG_IOS,
+					"$(inherited)",
+					GT_CONFIG_LLVM,
+					GT_CONFIG_ARM,
+				);
 				INFOPLIST_FILE = "gtlib_ios_framework/gtlib_ios_framework-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -451,6 +448,11 @@
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "gtlib_ios_framework/gtlib_ios_framework-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					GT_CONFIG_IOS,
+					GT_CONFIG_LLVM,
+					GT_CONFIG_ARM,
+				);
 				INFOPLIST_FILE = "gtlib_ios_framework/gtlib_ios_framework-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -477,6 +479,7 @@
 				5622732117E3F9C200CC4184 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

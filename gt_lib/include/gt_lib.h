@@ -22,8 +22,6 @@
 #include <wchar.h>
 #include <wctype.h>
 #include <math.h>
-
-/* FIXME:marked temporarily
  
 #if defined(GT_CONFIG_LINUX)
 	#include <sys/types.h>
@@ -57,7 +55,7 @@
 #endif
 
 #endif
- */
+
 /* Common libraries -- */
 
 /* Core libraries ++ */
