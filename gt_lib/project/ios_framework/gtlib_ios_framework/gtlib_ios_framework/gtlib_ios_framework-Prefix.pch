@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'gtlib_ios_framework' target in the 'gtlib_ios_framework' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+#endif
