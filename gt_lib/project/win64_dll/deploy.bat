@@ -1,4 +1,0 @@
-copy C:\Users\vince\Documents\GitHub\RobotSDK\gt_lib\project\win64_dll\x64\Release\win64_dll.dll C:\Users\vince\Documents\GitHub\RobotSDK\gt_lib\project\win64_dll_console\gtlib\lib\win64_dll.dll
-copy C:\Users\vince\Documents\GitHub\RobotSDK\gt_lib\project\win64_dll\x64\Release\win64_dll.exp C:\Users\vince\Documents\GitHub\RobotSDK\gt_lib\project\win64_dll_console\gtlib\lib\win64_dll.exp
-copy C:\Users\vince\Documents\GitHub\RobotSDK\gt_lib\project\win64_dll\x64\Release\win64_dll.lib C:\Users\vince\Documents\GitHub\RobotSDK\gt_lib\project\win64_dll_console\gtlib\lib\win64_dll.lib
-copy C:\Users\vince\Documents\GitHub\RobotSDK\gt_lib\project\win64_dll\x64\Release\win64_dll.pdb C:\Users\vince\Documents\GitHub\RobotSDK\gt_lib\project\win64_dll_console\gtlib\lib\win64_dll.pdb
