@@ -2,6 +2,11 @@
 #include <string.h>
 #include "sha256.h"
 
+#ifdef __cplusplus
+extern "C" 
+{
+#endif
+
 // Signed variables are for wimps 
 #define uchar unsigned char // 8-bit byte
 #define uint unsigned long // 32-bit word
@@ -153,3 +158,7 @@ void sha256_final(SHA256_CTX *ctx, uchar hash[])
       hash[i+28] = (ctx->state[7] >> (24-i*8)) & 0x000000ff;
    }  
 }  
+
+#ifdef __cplusplus
+}
+#endif

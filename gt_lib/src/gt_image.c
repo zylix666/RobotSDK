@@ -24,9 +24,10 @@ int GtImage_InitLib() {
 }
 
 GtImage_t *GtImage_New() {
+	GtImage_t *image;
 	if (gtImageIsInit == 0) return NULL;
 
-	GtImage_t *image = (GtImage_t *)gt_calloc(1, sizeof(GtImage_t));
+	image = (GtImage_t *)gt_calloc(1, sizeof(GtImage_t));
 	if (image == NULL) return NULL;
 
 	image->magic = GT_MAGIC_IMAGE;
@@ -71,6 +72,9 @@ int GtImage_Unlock(GtImage_t *image) {
 }
 
 int GtImage_InitImage(GtImage_t *image, int width, int height, int colorMode) {
+	
+	int dataSize = 0;
+	
 	if (image == NULL) return GT_ERROR_PARAMETER_0;
 	if (image->magic != GT_MAGIC_IMAGE) return GT_ERROR_PARAMETER_0;
 	if (width <= 0) return GT_ERROR_PARAMETER_1;
@@ -85,7 +89,6 @@ int GtImage_InitImage(GtImage_t *image, int width, int height, int colorMode) {
 	image->width = 0;
 	image->height = 0;
 
-	int dataSize = 0;
 
 	if (colorMode == GT_COLOR_MODE_GRAY8) {
 		dataSize = width * height;
@@ -120,6 +123,14 @@ int GtImage_GetColorMode(GtImage_t *image) {
 }
 
 int GtImage_SetColorMode(GtImage_t *image, int colorMode) {
+		
+		gt_byte gray8;
+		int gray;
+		int shiftRgb888;
+		int shiftGray8;
+		int x;
+		int y;
+
 	if (image == NULL) return GT_ERROR_PARAMETER_0;
 	if (image->magic != GT_MAGIC_IMAGE) return GT_ERROR_PARAMETER_0;
 	if (colorMode <= 0) return GT_ERROR_PARAMETER_1;
@@ -136,11 +147,7 @@ int GtImage_SetColorMode(GtImage_t *image, int colorMode) {
 			return GT_ERROR_NO_MEMORY;
 		}
 
-		int gray;
-		int shiftRgb888;
-		int shiftGray8;
-		int x;
-		int y;
+
 		for (y = 0; y < image->height; y ++) {
 			for (x = 0; x < image->width; x ++) {
 				shiftRgb888 = (x + y * image->width) * 3;
@@ -166,11 +173,7 @@ int GtImage_SetColorMode(GtImage_t *image, int colorMode) {
 			return GT_ERROR_NO_MEMORY;
 		}
 
-		gt_byte gray8;
-		int shiftRgb888;
-		int shiftGray8;
-		int x;
-		int y;
+
 		for (y = 0; y < image->height; y ++) {
 			for (x = 0; x < image->width; x ++) {
 				shiftRgb888 = (x + y * image->width) * 3;
@@ -286,6 +289,9 @@ int GtImage_DrawPixel(GtImage_t *image, int x, int y, GtColor_t *color) {
 }
 
 int GtImage_SetThreshold(GtImage_t *image, int threshold) {
+		int i;
+		int dataSize;
+
 	if (image == NULL) return GT_ERROR_PARAMETER_0;
 	if (image->magic != GT_MAGIC_IMAGE) return GT_ERROR_PARAMETER_0;
 	if (threshold < 0) return GT_ERROR_PARAMETER_1;
@@ -295,8 +301,8 @@ int GtImage_SetThreshold(GtImage_t *image, int threshold) {
 		return GT_ERROR_COLOR_MODE;
 	}
 
-	int i;
-	int dataSize = image->dataSize;
+
+	dataSize = image->dataSize;
 	for (i = 0; i < dataSize; i ++) {
 		if (image->data[i] >= threshold) {
 			image->data[i] = 255;
@@ -309,6 +315,12 @@ int GtImage_SetThreshold(GtImage_t *image, int threshold) {
 }
 
 int GtImage_SetBrightness(GtImage_t *image, int brightness) {
+
+		int i;
+	int dataSize;
+	int temp;
+
+
 	if (image == NULL) return GT_ERROR_PARAMETER_0;
 	if (image->magic != GT_MAGIC_IMAGE) return GT_ERROR_PARAMETER_0;
 
@@ -316,9 +328,8 @@ int GtImage_SetBrightness(GtImage_t *image, int brightness) {
 		return GT_ERROR_COLOR_MODE;
 	}
 
-	int i;
-	int dataSize = image->dataSize;
-	int temp;
+	dataSize = image->dataSize;
+	
 	for (i = 0; i < dataSize; i ++) {
         temp = image->data[i] + brightness;
 
@@ -364,22 +375,8 @@ int GtImage_GetCorrelation(GtImage_t *imageRoi, GtImage_t *imagePattern, GtImage
 }
 
 int GtImage_Load(GtImage_t *image, gt_byte *buffer, int bufferLength, int colorMode, int width, int height) {
-	if (image == NULL) return GT_ERROR_PARAMETER_0;
-	if (image->magic != GT_MAGIC_IMAGE) return GT_ERROR_PARAMETER_0;
-	if (buffer == NULL) return GT_ERROR_PARAMETER_1;
-	if (bufferLength <= 0) return GT_ERROR_PARAMETER_2;
-	if (colorMode <= 0) return GT_ERROR_PARAMETER_3;
-	if (width <= 0) return GT_ERROR_PARAMETER_4;
-	if (height <= 0) return GT_ERROR_PARAMETER_5;
 
 	int length = 0;
-
-	if (image->colorMode == GT_COLOR_MODE_RGB888 && colorMode == GT_COLOR_MODE_RGB565) {
-		length = width * height * 2;
-		if (bufferLength < length) {
-			return GT_ERROR_PARAMETER_2;
-		}
-
 		int x;
 		int y;
 		int imageDataShift;
@@ -389,6 +386,25 @@ int GtImage_Load(GtImage_t *image, gt_byte *buffer, int bufferLength, int colorM
 		unsigned char r;
 		unsigned char g;
 		unsigned char b;
+
+
+
+	if (image == NULL) return GT_ERROR_PARAMETER_0;
+	if (image->magic != GT_MAGIC_IMAGE) return GT_ERROR_PARAMETER_0;
+	if (buffer == NULL) return GT_ERROR_PARAMETER_1;
+	if (bufferLength <= 0) return GT_ERROR_PARAMETER_2;
+	if (colorMode <= 0) return GT_ERROR_PARAMETER_3;
+	if (width <= 0) return GT_ERROR_PARAMETER_4;
+	if (height <= 0) return GT_ERROR_PARAMETER_5;
+
+
+	if (image->colorMode == GT_COLOR_MODE_RGB888 && colorMode == GT_COLOR_MODE_RGB565) {
+		length = width * height * 2;
+		if (bufferLength < length) {
+			return GT_ERROR_PARAMETER_2;
+		}
+
+
 		for (y = 0; y < height; y ++) {
 			for (x = 0; x < width; x ++) {
 				imageDataShift = (x + y * width) * 3;
@@ -416,10 +432,7 @@ int GtImage_Load(GtImage_t *image, gt_byte *buffer, int bufferLength, int colorM
 			return GT_ERROR_PARAMETER_2;
 		}
 
-		int x;
-		int y;
-		int imageDataShift;
-		int bufferShift;
+
 		for (y = 0; y < height; y ++) {
 			for (x = 0; x < width; x ++) {
 				imageDataShift = (x + y * width) * 3;
@@ -437,22 +450,6 @@ int GtImage_Load(GtImage_t *image, gt_byte *buffer, int bufferLength, int colorM
 }
 
 int GtImage_Save(GtImage_t *image, gt_byte *buffer, int bufferLength, int colorMode, int width, int height) {
-	if (image == NULL) return GT_ERROR_PARAMETER_0;
-	if (image->magic != GT_MAGIC_IMAGE) return GT_ERROR_PARAMETER_0;
-	if (buffer == NULL) return GT_ERROR_PARAMETER_1;
-	if (bufferLength <= 0) return GT_ERROR_PARAMETER_2;
-	if (colorMode <= 0) return GT_ERROR_PARAMETER_3;
-	if (width <= 0) return GT_ERROR_PARAMETER_4;
-	if (height <= 0) return GT_ERROR_PARAMETER_5;
-
-	int length = 0;
-
-	if (image->colorMode == GT_COLOR_MODE_RGB888 && colorMode == GT_COLOR_MODE_RGB565) {
-		length = width * height * 2;
-
-		if (bufferLength < length) {
-			return GT_ERROR_PARAMETER_2;
-		}
 
 		int x;
 		int y;
@@ -463,6 +460,27 @@ int GtImage_Save(GtImage_t *image, gt_byte *buffer, int bufferLength, int colorM
 		unsigned char r;
 		unsigned char g;
 		unsigned char b;
+		unsigned char temp;
+		int length = 0;
+
+	if (image == NULL) return GT_ERROR_PARAMETER_0;
+	if (image->magic != GT_MAGIC_IMAGE) return GT_ERROR_PARAMETER_0;
+	if (buffer == NULL) return GT_ERROR_PARAMETER_1;
+	if (bufferLength <= 0) return GT_ERROR_PARAMETER_2;
+	if (colorMode <= 0) return GT_ERROR_PARAMETER_3;
+	if (width <= 0) return GT_ERROR_PARAMETER_4;
+	if (height <= 0) return GT_ERROR_PARAMETER_5;
+
+
+
+	if (image->colorMode == GT_COLOR_MODE_RGB888 && colorMode == GT_COLOR_MODE_RGB565) {
+		length = width * height * 2;
+
+		if (bufferLength < length) {
+			return GT_ERROR_PARAMETER_2;
+		}
+
+
 		for (y = 0; y < height; y ++) {
 			for (x = 0; x < width; x ++) {
 				imageDataShift = (x + y * width) * 3;
@@ -492,10 +510,6 @@ int GtImage_Save(GtImage_t *image, gt_byte *buffer, int bufferLength, int colorM
 			return GT_ERROR_PARAMETER_2;
 		}
 
-		int x;
-		int y;
-		int imageDataShift;
-		int bufferShift;
 		for (y = 0; y < height; y ++) {
 			for (x = 0; x < width; x ++) {
 				imageDataShift = (x + y * width) * 3;
@@ -517,11 +531,7 @@ int GtImage_Save(GtImage_t *image, gt_byte *buffer, int bufferLength, int colorM
 				return GT_ERROR_PARAMETER_2;
 			}
 
-			int x;
-			int y;
-			int imageDataShift;
-			int bufferShift;
-			unsigned char temp;
+
 			for (y = 0; y < height; y ++) {
 				for (x = 0; x < width; x ++) {
 					imageDataShift = x + y * width;
@@ -541,6 +551,11 @@ int GtImage_Save(GtImage_t *image, gt_byte *buffer, int bufferLength, int colorM
 }
 
 int GtImage_SetContrast(GtImage_t *image, float contrast) {
+
+		int i;
+	int dataSize = image->dataSize;
+	float temp;
+
 	if (image == NULL) return GT_ERROR_PARAMETER_0;
 	if (image->magic != GT_MAGIC_IMAGE) return GT_ERROR_PARAMETER_0;
 
@@ -548,9 +563,7 @@ int GtImage_SetContrast(GtImage_t *image, float contrast) {
 		return GT_ERROR_COLOR_MODE;
 	}
 
-	int i;
-	int dataSize = image->dataSize;
-	float temp;
+
 	for (i = 0; i < dataSize; i ++) {
        temp = image->data[i] * contrast;
 
@@ -568,6 +581,10 @@ int GtImage_SetContrast(GtImage_t *image, float contrast) {
 
 
 int GtImage_Invert(GtImage_t *image) {
+
+		int i;
+	int dataSize = image->dataSize;
+
 	if (image == NULL) return GT_ERROR_PARAMETER_0;
 	if (image->magic != GT_MAGIC_IMAGE) return GT_ERROR_PARAMETER_0;
 
@@ -575,8 +592,7 @@ int GtImage_Invert(GtImage_t *image) {
 		return GT_ERROR_COLOR_MODE;
 	}
 
-	int i;
-	int dataSize = image->dataSize;
+
 	for (i = 0; i < dataSize; i ++)
        image->data[i] = 255 - abs(image->data[i] % 255);
 
@@ -1152,6 +1168,24 @@ int GtImage_Gabor(GtImage_t *image)
 }
 
 int GtImage_GetDepthImage(GtImage_t *imageDepth, GtImage_t *imageLeft, GtImage_t *imageRight) {
+
+		int x;
+	int y;
+	int i;
+	int j;
+	int width = imageDepth->width;
+	int height = imageDepth->height;
+	int *sum; 
+	int depth;
+	int width_2 = width - 2;
+	int height_2 = height - 2;
+	int shift;
+	int min = 65535;
+	int minx;
+	int det;
+
+	sum = gt_malloc(width * sizeof(int));
+
 	if (imageDepth == NULL) return GT_ERROR_PARAMETER_0;
 	if (imageDepth->magic != GT_MAGIC_IMAGE) return GT_ERROR_PARAMETER_0;
 	if (imageLeft == NULL) return GT_ERROR_PARAMETER_1;
@@ -1168,17 +1202,7 @@ int GtImage_GetDepthImage(GtImage_t *imageDepth, GtImage_t *imageLeft, GtImage_t
 	if (imageDepth->height != imageLeft->height) return GT_ERROR_PARAMETER_0;
 	if (imageDepth->height != imageRight->height) return GT_ERROR_PARAMETER_0;
 
-	int x;
-	int y;
-	int i;
-	int j;
-	int width = imageDepth->width;
-	int height = imageDepth->height;
-	int *sum = gt_malloc(width * sizeof(int));
-	int depth;
-	int width_2 = width - 2;
-	int height_2 = height - 2;
-	int shift;
+
 
 	for (y = 0; y < height_2; ++y) {
 		for (x = 0; x < width_2; ++x)	{
@@ -1202,9 +1226,6 @@ int GtImage_GetDepthImage(GtImage_t *imageDepth, GtImage_t *imageLeft, GtImage_t
 				}
 			}
 
-			int min = 65535;
-			int minx;
-			int det;
 			for (i = x; i < width_2; ++i) {
 				det = refgray - sum[i];
 				det = det * det;
@@ -1283,17 +1304,8 @@ int GtImage_GetDepthImage(GtImage_t *imageDepth, GtImage_t *imageLeft, GtImage_t
 }
 
 int GtImage_Blob(GtImage_t *imageBlob, GtImage_t *imageSrc, int range) {
-	if (imageBlob == NULL) return GT_ERROR_PARAMETER_0;
-	if (imageBlob->magic != GT_MAGIC_IMAGE) return GT_ERROR_PARAMETER_0;
-	if (imageBlob->colorMode != GT_COLOR_MODE_INT32) return GT_ERROR_PARAMETER_0;
-	if (imageSrc == NULL) return GT_ERROR_PARAMETER_1;
-	if (imageSrc->magic != GT_MAGIC_IMAGE) return GT_ERROR_PARAMETER_1;
-	if (imageSrc->colorMode != GT_COLOR_MODE_GRAY8) return GT_ERROR_PARAMETER_1;
-	if (imageBlob->width != imageSrc->width) return GT_ERROR_PARAMETER_1;
-	if (imageBlob->height != imageSrc->height) return GT_ERROR_PARAMETER_1;
-	if (range <= 0) return GT_ERROR_PARAMETER_2;
 
-	int ret;
+		int ret;
 	int count;
 	int i;
 	int j;
@@ -1307,6 +1319,18 @@ int GtImage_Blob(GtImage_t *imageBlob, GtImage_t *imageSrc, int range) {
 	GtArray_t *blobPoints;
 	int diff;
 	int gray8;
+
+	if (imageBlob == NULL) return GT_ERROR_PARAMETER_0;
+	if (imageBlob->magic != GT_MAGIC_IMAGE) return GT_ERROR_PARAMETER_0;
+	if (imageBlob->colorMode != GT_COLOR_MODE_INT32) return GT_ERROR_PARAMETER_0;
+	if (imageSrc == NULL) return GT_ERROR_PARAMETER_1;
+	if (imageSrc->magic != GT_MAGIC_IMAGE) return GT_ERROR_PARAMETER_1;
+	if (imageSrc->colorMode != GT_COLOR_MODE_GRAY8) return GT_ERROR_PARAMETER_1;
+	if (imageBlob->width != imageSrc->width) return GT_ERROR_PARAMETER_1;
+	if (imageBlob->height != imageSrc->height) return GT_ERROR_PARAMETER_1;
+	if (range <= 0) return GT_ERROR_PARAMETER_2;
+
+
 
 	blobPoints = GtArray_New();
 	if (blobPoints == NULL) {
@@ -1479,6 +1503,15 @@ int GtImage_Blob(GtImage_t *imageBlob, GtImage_t *imageSrc, int range) {
 }
 
 int GtImage_ConvertBlobToGray8(GtImage_t *imageDst, GtImage_t *imageBlob) {
+	
+	int x;
+	int y;
+	int shift;
+	int width = imageDst->width;
+	int height = imageDst->height;
+	gt_uint8 *dataGray8 = (gt_uint8 *)imageDst->data;
+	gt_int32 *dataInt32 = (gt_int32 *)imageBlob->data;
+
 	if (imageDst == NULL) return GT_ERROR_PARAMETER_0;
 	if (imageDst->magic != GT_MAGIC_IMAGE) return GT_ERROR_PARAMETER_0;
 	if (imageDst->colorMode != GT_COLOR_MODE_GRAY8) return GT_ERROR_PARAMETER_0;
@@ -1488,13 +1521,7 @@ int GtImage_ConvertBlobToGray8(GtImage_t *imageDst, GtImage_t *imageBlob) {
 	if (imageDst->width != imageBlob->width) return GT_ERROR_PARAMETER_1;
 	if (imageDst->height != imageBlob->height) return GT_ERROR_PARAMETER_1;
 
-	int x;
-	int y;
-	int shift;
-	int width = imageDst->width;
-	int height = imageDst->height;
-	gt_uint8 *dataGray8 = (gt_uint8 *)imageDst->data;
-	gt_int32 *dataInt32 = (gt_int32 *)imageBlob->data;
+
 
 	for (y = 0; y < height; y++) {
 		for (x = 0; x < width; x++) {

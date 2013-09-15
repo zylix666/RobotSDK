@@ -24,9 +24,10 @@ int GtHttpd_InitLib(gt_utf8 *license, gt_utf8 *token) {
 }
 
 GtHttpd_t *GtHttpd_New() {
+	GtHttpd_t *httpd;
 	if (gtHttpdIsInit == 0) return NULL;
 	
-	GtHttpd_t *httpd = (GtHttpd_t *)gt_calloc(1, sizeof(GtHttpd_t));
+	httpd = (GtHttpd_t *)gt_calloc(1, sizeof(GtHttpd_t));
 	if (httpd == NULL) {
 		return NULL;
 	}

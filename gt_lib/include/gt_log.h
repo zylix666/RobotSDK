@@ -48,7 +48,14 @@ extern "C" {
         #define GT_LOGE(...) {}
     #endif
 #elif defined(GT_CONFIG_WINDOWS)
-
+	#if defined(GT_CONFIG_DEBUG)
+        int GtLog_Log(const char * __restrict format, ...);
+        #define GT_LOGI(fmt, ...) GtLog_Log(fmt, ## __VA_ARGS__);
+        #define GT_LOGE(fmt, ...) GtLog_Log(fmt, ## __VA_ARGS__);
+    #else
+        #define GT_LOGI(...) {}
+        #define GT_LOGE(...) {}
+    #endif
 #else
     #error OS is not defined!
 #endif

@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{09D67874-54DC-4B82-AE50-03DCFCCAA829}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>libgt</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;LIBGT_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;LIBGT_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;LIBGT_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;LIBGT_EXPORTS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>C:\Users\vince\Documents\GitHub\RobotSDK\third_party\svm;C:\Users\vince\Documents\GitHub\RobotSDK\third_party\pthread_win32\Pre-built.2\include;C:\Users\vince\Documents\GitHub\RobotSDK\gt_lib\project\win64_dll\libgt;C:\Users\vince\Documents\GitHub\RobotSDK\third_party\hash;C:\Users\vince\Documents\GitHub\RobotSDK\gt_lib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\third_party\hash\md5.h" />
+    <ClInclude Include="..\..\..\..\third_party\hash\sha1.h" />
+    <ClInclude Include="..\..\..\..\third_party\hash\sha256.h" />
+    <ClInclude Include="..\..\..\..\third_party\svm\svm.h" />
+    <ClInclude Include="..\..\..\include\gt_array.h" />
+    <ClInclude Include="..\..\..\include\gt_bitmap.h" />
+    <ClInclude Include="..\..\..\include\gt_buffer.h" />
+    <ClInclude Include="..\..\..\include\gt_color.h" />
+    <ClInclude Include="..\..\..\include\gt_config_parser.h" />
+    <ClInclude Include="..\..\..\include\gt_fifo.h" />
+    <ClInclude Include="..\..\..\include\gt_file.h" />
+    <ClInclude Include="..\..\..\include\gt_hash.h" />
+    <ClInclude Include="..\..\..\include\gt_hash_map.h" />
+    <ClInclude Include="..\..\..\include\gt_http.h" />
+    <ClInclude Include="..\..\..\include\gt_httpd.h" />
+    <ClInclude Include="..\..\..\include\gt_image.h" />
+    <ClInclude Include="..\..\..\include\gt_image_barcode.h" />
+    <ClInclude Include="..\..\..\include\gt_image_cuda.h" />
+    <ClInclude Include="..\..\..\include\gt_image_mt.h" />
+    <ClInclude Include="..\..\..\include\gt_image_ocl.h" />
+    <ClInclude Include="..\..\..\include\gt_image_ocv.h" />
+    <ClInclude Include="..\..\..\include\gt_lib.h" />
+    <ClInclude Include="..\..\..\include\gt_lock.h" />
+    <ClInclude Include="..\..\..\include\gt_log.h" />
+    <ClInclude Include="..\..\..\include\gt_magic.h" />
+    <ClInclude Include="..\..\..\include\gt_math.h" />
+    <ClInclude Include="..\..\..\include\gt_matrix.h" />
+    <ClInclude Include="..\..\..\include\gt_media_player.h" />
+    <ClInclude Include="..\..\..\include\gt_mem.h" />
+    <ClInclude Include="..\..\..\include\gt_pdf.h" />
+    <ClInclude Include="..\..\..\include\gt_pid.h" />
+    <ClInclude Include="..\..\..\include\gt_readme.h" />
+    <ClInclude Include="..\..\..\include\gt_ret.h" />
+    <ClInclude Include="..\..\..\include\gt_runtime.h" />
+    <ClInclude Include="..\..\..\include\gt_semaphore.h" />
+    <ClInclude Include="..\..\..\include\gt_stack.h" />
+    <ClInclude Include="..\..\..\include\gt_string.h" />
+    <ClInclude Include="..\..\..\include\gt_svm.h" />
+    <ClInclude Include="..\..\..\include\gt_template.h" />
+    <ClInclude Include="..\..\..\include\gt_timer_us.h" />
+    <ClInclude Include="..\..\..\include\gt_type.h" />
+    <ClInclude Include="..\..\..\include\gt_utf8.h" />
+    <ClInclude Include="gt_config.h" />
+    <ClInclude Include="libgt.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\third_party\hash\md5c.c" />
+    <ClCompile Include="..\..\..\..\third_party\hash\sha1.c" />
+    <ClCompile Include="..\..\..\..\third_party\hash\sha256.c" />
+    <ClCompile Include="..\..\..\..\third_party\svm\svm.cpp" />
+    <ClCompile Include="..\..\..\src\gt_array.c" />
+    <ClCompile Include="..\..\..\src\gt_bitmap.c" />
+    <ClCompile Include="..\..\..\src\gt_buffer.c" />
+    <ClCompile Include="..\..\..\src\gt_color.c" />
+    <ClCompile Include="..\..\..\src\gt_config_parser.c" />
+    <ClCompile Include="..\..\..\src\gt_fifo.c" />
+    <ClCompile Include="..\..\..\src\gt_file.c" />
+    <ClCompile Include="..\..\..\src\gt_hash.c" />
+    <ClCompile Include="..\..\..\src\gt_hash_map.c" />
+    <ClCompile Include="..\..\..\src\gt_http.c" />
+    <ClCompile Include="..\..\..\src\gt_httpd.c" />
+    <ClCompile Include="..\..\..\src\gt_image.c" />
+    <ClCompile Include="..\..\..\src\gt_image_mt.c" />
+    <ClCompile Include="..\..\..\src\gt_lib.c" />
+    <ClCompile Include="..\..\..\src\gt_lock.c" />
+    <ClCompile Include="..\..\..\src\gt_log.c" />
+    <ClCompile Include="..\..\..\src\gt_math.c" />
+    <ClCompile Include="..\..\..\src\gt_matrix.c" />
+    <ClCompile Include="..\..\..\src\gt_mem.c" />
+    <ClCompile Include="..\..\..\src\gt_pdf.c" />
+    <ClCompile Include="..\..\..\src\gt_pid.c" />
+    <ClCompile Include="..\..\..\src\gt_runtime.c" />
+    <ClCompile Include="..\..\..\src\gt_semaphore.c" />
+    <ClCompile Include="..\..\..\src\gt_stack.c" />
+    <ClCompile Include="..\..\..\src\gt_string.c" />
+    <ClCompile Include="..\..\..\src\gt_svm.cpp" />
+    <ClCompile Include="..\..\..\src\gt_template.c" />
+    <ClCompile Include="..\..\..\src\gt_timer_us.c" />
+    <ClCompile Include="..\..\..\src\gt_utf8.c" />
+    <ClCompile Include="dllmain.cpp">
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</CompileAsManaged>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </PrecompiledHeader>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</CompileAsManaged>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</CompileAsManaged>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="libgt.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\src\gt_image_cuda.cu" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

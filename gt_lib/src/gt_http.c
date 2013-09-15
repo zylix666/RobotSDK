@@ -24,9 +24,10 @@ int GtHttp_InitLib() {
 }
 
 GtHttp_t *GtHttp_New() {
+	GtHttp_t *http;
 	if (gtHttpIsInit == 0) return NULL;
 	
-	GtHttp_t *http = (GtHttp_t *)gt_calloc(1, sizeof(GtHttp_t));
+	http = (GtHttp_t *)gt_calloc(1, sizeof(GtHttp_t));
 	if (http == NULL) {
 		return NULL;
 	}

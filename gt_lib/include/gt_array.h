@@ -38,7 +38,7 @@ int GtArray_Unlock(GtArray_t *array);
 
 int GtArray_Test(GtArray_t *array);
 
-int GtArray_Init(GtArray_t *gtArray, gt_utf8 *elementType, gt_size elementSize, gt_size reservedLength);
+int GtArray_Init(GtArray_t *gtArray, gt_utf8 *elementType, int elementSize, int reservedLength);
 
 gt_utf8 *GtArray_GetElementType(GtArray_t *gtArray);
 

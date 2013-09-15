@@ -52,6 +52,16 @@ int GtLog_Log(const char * __restrict format, ...) {
     va_end(args);
     fprintf(stdout, "\n");
     return 1;
+#elif defined(GT_CONFIG_WINDOWS)
+	/*
+    va_list args;
+    va_start(args,format);
+    vfprintf(stdout, format, args);
+    //printf(format, args) ;
+    va_end(args);
+    fprintf(stdout, "\n");
+	*/
+    return 1;
 #else
     #error OS is undefined!
 #endif

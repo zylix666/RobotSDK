@@ -1,0 +1,79 @@
+﻿Build started 2013/9/15 下午 03:27:53.
+     1>Project "C:\Users\vince\Documents\GitHub\RobotSDK\gt_lib\project\win64_dll\libgt\libgt.vcxproj" on node 2 (Rebuild target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /sdl /Od /D WIN32 /D _DEBUG /D _WINDOWS /D _USRDLL /D LIBGT_EXPORTS /D _WINDLL /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp"x64\Debug\libgt.pch" /Fo"x64\Debug\\" /Fd"x64\Debug\vc110.pdb" /Gd /TP /errorReport:prompt stdafx.cpp
+         stdafx.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /sdl /Od /D WIN32 /D _DEBUG /D _WINDOWS /D _USRDLL /D LIBGT_EXPORTS /D _WINDLL /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"x64\Debug\libgt.pch" /Fo"x64\Debug\\" /Fd"x64\Debug\vc110.pdb" /Gd /TC /errorReport:prompt ..\..\..\..\third_party\hash\md5c.c ..\..\..\..\third_party\hash\sha1.c ..\..\..\..\third_party\hash\sha256.c ..\..\..\src\gt_array.c ..\..\..\src\gt_bitmap.c ..\..\..\src\gt_buffer.c ..\..\..\src\gt_color.c ..\..\..\src\gt_config_parser.c ..\..\..\src\gt_fifo.c ..\..\..\src\gt_file.c ..\..\..\src\gt_hash.c ..\..\..\src\gt_hash_map.c ..\..\..\src\gt_http.c ..\..\..\src\gt_httpd.c ..\..\..\src\gt_image.c ..\..\..\src\gt_image_mt.c ..\..\..\src\gt_lib.c ..\..\..\src\gt_lock.c ..\..\..\src\gt_log.c ..\..\..\src\gt_math.c ..\..\..\src\gt_matrix.c ..\..\..\src\gt_media_player.c ..\..\..\src\gt_mem.c ..\..\..\src\gt_pdf.c ..\..\..\src\gt_pid.c ..\..\..\src\gt_runtime.c ..\..\..\src\gt_semaphore.c ..\..\..\src\gt_stack.c ..\..\..\src\gt_string.c ..\..\..\src\gt_template.c ..\..\..\src\gt_timer_us.c ..\..\..\src\gt_utf8.c
+         gt_utf8.c
+     1>..\..\..\src\gt_utf8.c : fatal error C1853: 'x64\Debug\libgt.pch' precompiled header file is from a previous version of the compiler, or the precompiled header is C++ and you are using it from C (or vice versa)
+         gt_timer_us.c
+     1>..\..\..\src\gt_timer_us.c : fatal error C1853: 'x64\Debug\libgt.pch' precompiled header file is from a previous version of the compiler, or the precompiled header is C++ and you are using it from C (or vice versa)
+         gt_template.c
+     1>..\..\..\src\gt_template.c : fatal error C1853: 'x64\Debug\libgt.pch' precompiled header file is from a previous version of the compiler, or the precompiled header is C++ and you are using it from C (or vice versa)
+         gt_string.c
+     1>..\..\..\src\gt_string.c : fatal error C1853: 'x64\Debug\libgt.pch' precompiled header file is from a previous version of the compiler, or the precompiled header is C++ and you are using it from C (or vice versa)
+         gt_stack.c
+     1>..\..\..\src\gt_stack.c : fatal error C1853: 'x64\Debug\libgt.pch' precompiled header file is from a previous version of the compiler, or the precompiled header is C++ and you are using it from C (or vice versa)
+         gt_semaphore.c
+     1>..\..\..\src\gt_semaphore.c : fatal error C1853: 'x64\Debug\libgt.pch' precompiled header file is from a previous version of the compiler, or the precompiled header is C++ and you are using it from C (or vice versa)
+         gt_runtime.c
+     1>..\..\..\src\gt_runtime.c : fatal error C1853: 'x64\Debug\libgt.pch' precompiled header file is from a previous version of the compiler, or the precompiled header is C++ and you are using it from C (or vice versa)
+         gt_pid.c
+     1>..\..\..\src\gt_pid.c : fatal error C1853: 'x64\Debug\libgt.pch' precompiled header file is from a previous version of the compiler, or the precompiled header is C++ and you are using it from C (or vice versa)
+         gt_pdf.c
+     1>..\..\..\src\gt_pdf.c : fatal error C1853: 'x64\Debug\libgt.pch' precompiled header file is from a previous version of the compiler, or the precompiled header is C++ and you are using it from C (or vice versa)
+         gt_mem.c
+     1>..\..\..\src\gt_mem.c : fatal error C1853: 'x64\Debug\libgt.pch' precompiled header file is from a previous version of the compiler, or the precompiled header is C++ and you are using it from C (or vice versa)
+         gt_media_player.c
+     1>..\..\..\src\gt_media_player.c : warning C4819: The file contains a character that cannot be represented in the current code page (950). Save the file in Unicode format to prevent data loss
+     1>..\..\..\src\gt_media_player.c : fatal error C1853: 'x64\Debug\libgt.pch' precompiled header file is from a previous version of the compiler, or the precompiled header is C++ and you are using it from C (or vice versa)
+         gt_matrix.c
+     1>..\..\..\src\gt_matrix.c : fatal error C1853: 'x64\Debug\libgt.pch' precompiled header file is from a previous version of the compiler, or the precompiled header is C++ and you are using it from C (or vice versa)
+         gt_math.c
+     1>..\..\..\src\gt_math.c : fatal error C1853: 'x64\Debug\libgt.pch' precompiled header file is from a previous version of the compiler, or the precompiled header is C++ and you are using it from C (or vice versa)
+         gt_log.c
+     1>..\..\..\src\gt_log.c : fatal error C1853: 'x64\Debug\libgt.pch' precompiled header file is from a previous version of the compiler, or the precompiled header is C++ and you are using it from C (or vice versa)
+         gt_lock.c
+     1>..\..\..\src\gt_lock.c : fatal error C1853: 'x64\Debug\libgt.pch' precompiled header file is from a previous version of the compiler, or the precompiled header is C++ and you are using it from C (or vice versa)
+         gt_lib.c
+     1>..\..\..\src\gt_lib.c : fatal error C1853: 'x64\Debug\libgt.pch' precompiled header file is from a previous version of the compiler, or the precompiled header is C++ and you are using it from C (or vice versa)
+         gt_image_mt.c
+     1>..\..\..\src\gt_image_mt.c : fatal error C1853: 'x64\Debug\libgt.pch' precompiled header file is from a previous version of the compiler, or the precompiled header is C++ and you are using it from C (or vice versa)
+         gt_image.c
+     1>..\..\..\src\gt_image.c : fatal error C1853: 'x64\Debug\libgt.pch' precompiled header file is from a previous version of the compiler, or the precompiled header is C++ and you are using it from C (or vice versa)
+         gt_httpd.c
+     1>..\..\..\src\gt_httpd.c : fatal error C1853: 'x64\Debug\libgt.pch' precompiled header file is from a previous version of the compiler, or the precompiled header is C++ and you are using it from C (or vice versa)
+         gt_http.c
+     1>..\..\..\src\gt_http.c : fatal error C1853: 'x64\Debug\libgt.pch' precompiled header file is from a previous version of the compiler, or the precompiled header is C++ and you are using it from C (or vice versa)
+         Generating Code...
+         Compiling...
+         gt_hash_map.c
+     1>..\..\..\src\gt_hash_map.c : fatal error C1853: 'x64\Debug\libgt.pch' precompiled header file is from a previous version of the compiler, or the precompiled header is C++ and you are using it from C (or vice versa)
+         gt_hash.c
+     1>..\..\..\src\gt_hash.c : fatal error C1853: 'x64\Debug\libgt.pch' precompiled header file is from a previous version of the compiler, or the precompiled header is C++ and you are using it from C (or vice versa)
+         gt_file.c
+     1>..\..\..\src\gt_file.c : fatal error C1853: 'x64\Debug\libgt.pch' precompiled header file is from a previous version of the compiler, or the precompiled header is C++ and you are using it from C (or vice versa)
+         gt_fifo.c
+     1>..\..\..\src\gt_fifo.c : fatal error C1853: 'x64\Debug\libgt.pch' precompiled header file is from a previous version of the compiler, or the precompiled header is C++ and you are using it from C (or vice versa)
+         gt_config_parser.c
+     1>..\..\..\src\gt_config_parser.c : fatal error C1853: 'x64\Debug\libgt.pch' precompiled header file is from a previous version of the compiler, or the precompiled header is C++ and you are using it from C (or vice versa)
+         gt_color.c
+     1>..\..\..\src\gt_color.c : fatal error C1853: 'x64\Debug\libgt.pch' precompiled header file is from a previous version of the compiler, or the precompiled header is C++ and you are using it from C (or vice versa)
+         gt_buffer.c
+     1>..\..\..\src\gt_buffer.c : fatal error C1853: 'x64\Debug\libgt.pch' precompiled header file is from a previous version of the compiler, or the precompiled header is C++ and you are using it from C (or vice versa)
+         gt_bitmap.c
+     1>..\..\..\src\gt_bitmap.c : fatal error C1853: 'x64\Debug\libgt.pch' precompiled header file is from a previous version of the compiler, or the precompiled header is C++ and you are using it from C (or vice versa)
+         gt_array.c
+     1>..\..\..\src\gt_array.c : fatal error C1853: 'x64\Debug\libgt.pch' precompiled header file is from a previous version of the compiler, or the precompiled header is C++ and you are using it from C (or vice versa)
+         sha256.c
+     1>..\..\..\..\third_party\hash\sha256.c : fatal error C1853: 'x64\Debug\libgt.pch' precompiled header file is from a previous version of the compiler, or the precompiled header is C++ and you are using it from C (or vice versa)
+         sha1.c
+     1>..\..\..\..\third_party\hash\sha1.c : fatal error C1853: 'x64\Debug\libgt.pch' precompiled header file is from a previous version of the compiler, or the precompiled header is C++ and you are using it from C (or vice versa)
+         md5c.c
+     1>..\..\..\..\third_party\hash\md5c.c : fatal error C1853: 'x64\Debug\libgt.pch' precompiled header file is from a previous version of the compiler, or the precompiled header is C++ and you are using it from C (or vice versa)
+         Generating Code...
+     1>Done Building Project "C:\Users\vince\Documents\GitHub\RobotSDK\gt_lib\project\win64_dll\libgt\libgt.vcxproj" (Rebuild target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.62

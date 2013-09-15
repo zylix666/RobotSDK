@@ -15,6 +15,8 @@ extern "C"
 static int gtFifoIsInit = 0;
 
 int GtFifo_InitLib(gt_utf8 *license, gt_utf8 *token) {
+
+
 	if (gtFifoIsInit == 1) {
 		return GT_OK_INIT_ALREADY;
 	}
@@ -24,9 +26,11 @@ int GtFifo_InitLib(gt_utf8 *license, gt_utf8 *token) {
 }
 
 GtFifo_t *GtFifo_New() {
+
+	GtFifo_t *fifo ;
 	if (gtFifoIsInit == 0) return NULL;
 	
-	GtFifo_t *fifo = (GtFifo_t *)gt_calloc(1, sizeof(GtFifo_t));
+	fifo = (GtFifo_t *)gt_calloc(1, sizeof(GtFifo_t));
 	if (fifo == NULL) {
 		return NULL;
 	}
@@ -85,7 +89,7 @@ int GtFifo_Test(GtFifo_t *fifo) {
 	return GT_OK;
 }
 
-int GtFifo_Init(GtFifo_t *gtFifo, gt_utf8 *elementType, gt_size elementSize, gt_size reservedLength)
+int GtFifo_Init(GtFifo_t *gtFifo, gt_utf8 *elementType, int elementSize, int reservedLength)
 {
 	if(gtFifo == NULL) return GT_ERROR_NULL_POINTER;
 	if(elementSize <= 0) return GT_ERROR_PARAMETER_2;
@@ -120,7 +124,7 @@ int GtFifo_Push(GtFifo_t *gtFifo, void *element)
 		return -1;
 	}
 
-	gt_memcpy(gtFifo->data + gtFifo->elementSize * gtFifo->bk, element, gtFifo->elementSize);
+	gt_memcpy((gt_byte *)gtFifo->data + gtFifo->elementSize * gtFifo->bk, element, gtFifo->elementSize);
 	gtFifo->bk++;
 	gtFifo->bk %= gtFifo->reservedLength;
 	gtFifo->length++;
@@ -136,7 +140,7 @@ int GtFifo_Pop(GtFifo_t *gtFifo, void *element)
 		return -1;
 	}
 
-	gt_memcpy(element, gtFifo->data + gtFifo->elementSize * gtFifo->fr, gtFifo->elementSize);
+	gt_memcpy(element, (gt_byte *)gtFifo->data + gtFifo->elementSize * gtFifo->fr, gtFifo->elementSize);
 	gtFifo->fr++;//%=
 	gtFifo->fr %= gtFifo->reservedLength;
 	gtFifo->length--;

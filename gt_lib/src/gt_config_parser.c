@@ -45,6 +45,7 @@ int GtConfigParser_Open(gt_utf8 *path) {
 	int l1,r1,l2,r2;
 	int failflag;
 	FILE *f;
+	int i;
 	if ((f = fopen((char*)path, "rt")) == NULL) {
 		//CANNOT OPEN FILE
 		return -1;
@@ -53,12 +54,12 @@ int GtConfigParser_Open(gt_utf8 *path) {
 	root = gt_calloc(1,sizeof(TrieNode));
 	while (!feof(f)) {
 		fgets(buffer, CONFIG_BUFFER_SIZE, f);
-		len = strlen(buffer);
+		len = (int)strlen(buffer);
 		eqpos = sharppos = -1;
 		failflag = 0;
 	
 		//Get equal & sharp position
-		int i;
+
 		for (i=0;i<len;i++) {
 			if (buffer[i]=='=') {
 				if (eqpos == -1)
@@ -175,9 +176,11 @@ int GtConfigParser_Get(gt_utf8 *key, gt_utf8 *value, int valueSize) {
 }
 
 void delete_node(TrieNode *cur) {
+	
+	int i;
 	if (cur==NULL) return;
 
-	int i;
+
 	for (i = 0; i < TRIE_CHILD; i++) {
 		delete_node(cur->child[i]);
 	}

@@ -25,6 +25,11 @@ documentation and/or software.
 
 #include "md5.h"
 
+#ifdef __cplusplus
+extern "C" 
+{
+#endif
+
 /* Constants for MD5Transform routine.
  */
 #define S11 7
@@ -330,3 +335,7 @@ unsigned int len;
   for (i = 0; i < len; i++)
  ((char *)output)[i] = (char)value;
 }
+
+#ifdef __cplusplus
+}
+#endif

@@ -23,10 +23,14 @@ int GtFile_InitLib() {
     return GT_OK;
 }
 
+#if !defined (GT_CONFIG_VC)
+
 GtFile_t *GtFile_New() {
+	
+	GtFile_t *gtFile;
 	if (gtFileIsInit == 0) return NULL;
 
-	GtFile_t *gtFile = (GtFile_t *)gt_calloc(1, sizeof(GtFile_t));
+	gtFile = (GtFile_t *)gt_calloc(1, sizeof(GtFile_t));
 	if (gtFile == NULL) {
 		return NULL;
 	}
@@ -84,6 +88,7 @@ int GtFile_Open(GtFile_t *gtFile, gt_utf8 *path , int flags) {
 }
 
 int GtFile_Close(GtFile_t *gtFile) {
+	int ret;
 	if (gtFile == NULL) return GT_ERROR_PARAMETER_0;
 	if (gtFile->magic != GT_MAGIC_FILE) return GT_ERROR_PARAMETER_0;
 
@@ -91,7 +96,7 @@ int GtFile_Close(GtFile_t *gtFile) {
 		return GT_OK_DONE_ALREADY;
 	}
 
-	int ret = close(gtFile->sys_file);
+	ret = close(gtFile->sys_file);
   
   	if (ret != 0) {
     	return GT_ERROR;
@@ -138,6 +143,7 @@ gt_int64 GtFile_Seek(GtFile_t *gtFile, gt_int64 offset, int origin) {
 }
 
 int GtFile_Sync(GtFile_t *gtFile) {
+	int ret;
 	if (gtFile == NULL) return GT_ERROR_PARAMETER_0;
 	if (gtFile->magic != GT_MAGIC_FILE) return GT_ERROR_PARAMETER_0;
 
@@ -145,7 +151,7 @@ int GtFile_Sync(GtFile_t *gtFile) {
 		return GT_ERROR_OPEN_FILE;
 	}
 
-	int ret = fsync(gtFile->sys_file);
+	ret = fsync(gtFile->sys_file);
   
   	if (ret != 0) {
   		return GT_ERROR;	
@@ -155,6 +161,13 @@ int GtFile_Sync(GtFile_t *gtFile) {
 }
 
 gt_int64 GtFile_GetSize(GtFile_t *gtFile) {
+
+	gt_int64 currentPosition = lseek(gtFile->sys_file, 0, SEEK_CUR);
+
+	gt_int64 fileSize = lseek(gtFile->sys_file, 0, SEEK_END);
+
+	gt_int64 newPosition = lseek(gtFile->sys_file, currentPosition, SEEK_SET);
+
 	if (gtFile == NULL) return GT_ERROR_PARAMETER_0;
 	if (gtFile->magic != GT_MAGIC_FILE) return GT_ERROR_PARAMETER_0;
 
@@ -162,11 +175,7 @@ gt_int64 GtFile_GetSize(GtFile_t *gtFile) {
 		return GT_ERROR_OPEN_FILE;
 	}
 
-	gt_int64 currentPosition = lseek(gtFile->sys_file, 0, SEEK_CUR);
-
-	gt_int64 fileSize = lseek(gtFile->sys_file, 0, SEEK_END);
-
-	gt_int64 newPosition = lseek(gtFile->sys_file, currentPosition, SEEK_SET);
+	
 
 	if (currentPosition != newPosition) {
 		return GT_ERROR;
@@ -176,15 +185,19 @@ gt_int64 GtFile_GetSize(GtFile_t *gtFile) {
 }
 
 int GtFile_Chmod(gt_utf8 *path, int mode) {
+	int ret ;
+	
 	if (path == NULL) return GT_ERROR_PARAMETER_0;
 
-	int ret = chmod((const char *)path, mode);
+	ret = chmod((const char *)path, mode);
 	if (ret != 0) {
 		return GT_ERROR;
 	}
 
 	return GT_OK;
 }
+
+#endif
 
 #ifdef __cplusplus
 }

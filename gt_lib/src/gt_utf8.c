@@ -258,7 +258,7 @@ int GtUtf8_GetIndexShift(const gt_utf8 *str, int index) {
       break;
   }
   
-  shift = str_ptr - start;
+  shift = (int)(str_ptr - start);
 
   return shift; 
 }

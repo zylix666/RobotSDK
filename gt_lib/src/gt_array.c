@@ -24,9 +24,11 @@ int GtArray_InitLib() {
 }
 
 GtArray_t *GtArray_New() {
+
+	GtArray_t *gtArray;
 	if (gtArrayIsInit == 0) return NULL;
 	
-	GtArray_t *gtArray = (GtArray_t *)gt_calloc(1, sizeof(GtArray_t));
+	gtArray = (GtArray_t *)gt_calloc(1, sizeof(GtArray_t));
 	if (gtArray == NULL) {
 		return NULL;
 	}
@@ -79,7 +81,7 @@ int GtArray_Test(GtArray_t *gtArray) {
 	return GT_OK;
 }
 
-int GtArray_Init(GtArray_t *gtArray, gt_utf8 *elementType, gt_size elementSize, gt_size reservedLength) {
+int GtArray_Init(GtArray_t *gtArray, gt_utf8 *elementType, int elementSize, int reservedLength) {
 	if (gtArray == NULL) return GT_ERROR_PARAMETER_0;
 	if (gtArray->magic != GT_MAGIC_ARRAY) return GT_ERROR_PARAMETER_0;
 	if(elementSize <= 0) return GT_ERROR_PARAMETER_2;
@@ -117,7 +119,7 @@ void *GtArray_Get(GtArray_t *gtArray, int index) {
 	if (index < 0) return NULL;
 	if (index >= gtArray->length) return NULL;
 
-	return gtArray->data + index * gtArray->elementSize;
+	return (unsigned char *)gtArray->data + index * gtArray->elementSize;
 }
 
 int GtArray_Copy(GtArray_t *gtArray, int index, void *element) {
@@ -127,7 +129,7 @@ int GtArray_Copy(GtArray_t *gtArray, int index, void *element) {
 	if (index >= gtArray->length) return GT_ERROR_PARAMETER_1;
 	if (element == NULL) return GT_ERROR_PARAMETER_2;
 
-	gt_memcpy(element, gtArray->data + index * gtArray->elementSize, gtArray->elementSize);
+	gt_memcpy(element, (unsigned char *)gtArray->data + index * gtArray->elementSize, gtArray->elementSize);
 
 	return GT_OK;
 }
@@ -139,7 +141,7 @@ int GtArray_Set(GtArray_t *gtArray, int index, void *element) {
 	if (index >= gtArray->length) return GT_ERROR_PARAMETER_1;
 	if (element == NULL) return GT_ERROR_PARAMETER_2;
 
-	gt_memcpy(gtArray->data + index * gtArray->elementSize, element, gtArray->elementSize);
+	gt_memcpy((unsigned char *)gtArray->data + index * gtArray->elementSize, element, gtArray->elementSize);
 
 	return GT_OK;
 }
@@ -153,7 +155,7 @@ int GtArray_Append(GtArray_t *gtArray, void *element) {
 		GtArray_SetRealLength(gtArray, gtArray->realLength + gtArray->reservedLength + 1);
 	}
 
-	gt_memcpy(gtArray->data + gtArray->length * gtArray->elementSize, element, gtArray->elementSize);
+	gt_memcpy((unsigned char *)gtArray->data + gtArray->length * gtArray->elementSize, element, gtArray->elementSize);
 	gtArray->length ++;
 
 	return GT_OK;
@@ -171,7 +173,7 @@ int GtArray_Insert(GtArray_t *gtArray, int index, void *element) {
 	}
 
 	if (index < gtArray->length - 1) {
-		gt_memmove(gtArray->data + (index + 1) * gtArray->elementSize, gtArray->data + index * gtArray->elementSize, gtArray->length * gtArray->elementSize);
+		gt_memmove((unsigned char *)gtArray->data + (index + 1) * gtArray->elementSize, (unsigned char *)gtArray->data + index * gtArray->elementSize, gtArray->length * gtArray->elementSize);
 	}
 
 	/*
@@ -180,7 +182,7 @@ int GtArray_Insert(GtArray_t *gtArray, int index, void *element) {
 		gt_memcpy(gtArray->data + (i+1) * gtArray->elementSize, gtArray->data + i * gtArray->elementSize, gtArray->elementSize);
 	}
 	*/
-	gt_memcpy(gtArray->data + index * gtArray->elementSize, element, gtArray->elementSize);
+	gt_memcpy((unsigned char *)gtArray->data + index * gtArray->elementSize, element, gtArray->elementSize);
 	
 	gtArray->length++;
 	
@@ -195,7 +197,7 @@ int GtArray_Remove(GtArray_t *gtArray, int index) {
 	if (index >= gtArray->length) return GT_ERROR_PARAMETER_1;
 
 	if (index < gtArray->length - 1) {
-		gt_memmove(gtArray->data + index * gtArray->elementSize, gtArray->data + (index + 1) * gtArray->elementSize, (gtArray->length - 1) * gtArray->elementSize);
+		gt_memmove((unsigned char *)gtArray->data + index * gtArray->elementSize, (unsigned char *)gtArray->data + (index + 1) * gtArray->elementSize, (gtArray->length - 1) * gtArray->elementSize);
 	}
 
 
@@ -224,11 +226,14 @@ int GtArray_SetReservedLength(GtArray_t *gtArray, int reservedLength) {
 }
 
 int GtArray_SetRealLength(GtArray_t *gtArray, int realLength) {
+	
+	int length;
+
 	if (gtArray == NULL) return GT_ERROR_PARAMETER_0;
 	if (gtArray->magic != GT_MAGIC_ARRAY) return GT_ERROR_PARAMETER_0;
 	if (realLength <= 0) return GT_ERROR_PARAMETER_1;
 
-	int length;
+
 	if(realLength - gtArray->length > gtArray->reservedLength) {
 		length = realLength;
 	} else {

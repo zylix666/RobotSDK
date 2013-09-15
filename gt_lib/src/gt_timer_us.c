@@ -8,7 +8,10 @@
 #include "gt_timer_us.h"
 
 #include <time.h>
-#include <sys/time.h>
+
+#if !defined(GT_CONFIG_WINDOWS)
+	#include <sys/time.h>
+#endif
 
 static int gtTimerUsIsInit = 0;
 
@@ -25,6 +28,8 @@ int GtTimerUs_InitLib() {
 
 	return GT_OK;
 }
+
+#if !defined(GT_CONFIG_WINDOWS)
 
 GtTimerUs_t *GtTimerUs_New() {
 	if (gtTimerUsIsInit == 0) return NULL;
@@ -103,6 +108,8 @@ gt_int64 GtTimerUs_GetUs(GtTimerUs_t *timerUs) {
 
 	return timerUs->end - timerUs->start;
 }
+
+#endif
 
 #ifdef __cplusplus
 }

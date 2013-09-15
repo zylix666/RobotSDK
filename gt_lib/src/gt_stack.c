@@ -24,9 +24,11 @@ int GtStack_InitLib(gt_utf8 *license, gt_utf8 *token) {
 }
 
 GtStack_t *GtStack_New() {
+	GtStack_t *stack;
+
 	if (gtStackIsInit == 0) return NULL;
 	
-	GtStack_t *stack = (GtStack_t *)gt_calloc(1, sizeof(GtStack_t));
+	stack = (GtStack_t *)gt_calloc(1, sizeof(GtStack_t));
 	if (stack == NULL) {
 		return NULL;
 	}
@@ -120,7 +122,7 @@ int GtStack_Push(GtStack_t *gtStack, void *element)
 		return -1;
 	}
 
-	gt_memcpy(gtStack->data + gtStack->elementSize * gtStack->top, element, gtStack->elementSize);
+	gt_memcpy((unsigned char *)gtStack->data + gtStack->elementSize * gtStack->top, element, gtStack->elementSize);
 	gtStack->top++;
 	return GT_OK;
 }
@@ -135,7 +137,7 @@ int GtStack_Pop(GtStack_t *gtStack, void *element)
 	}
 
 	gtStack->top--;
-	gt_memcpy(element, gtStack->data + gtStack->elementSize * gtStack->top, gtStack->elementSize);
+	gt_memcpy((unsigned char *)element, (unsigned char *)gtStack->data + gtStack->elementSize * gtStack->top, gtStack->elementSize);
 	return GT_OK;
 }
 

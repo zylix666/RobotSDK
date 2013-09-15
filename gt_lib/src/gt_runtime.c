@@ -34,6 +34,8 @@ int GtRuntime_GetCpuCount() {
 	return GT_ERROR_NOT_SUPPORT;
 #elif defined(GT_CONFIG_LINUX)
 	return GT_ERROR_NOT_SUPPORT;
+#elif defined(GT_CONFIG_WINDOWS)
+	return GT_ERROR_NOT_SUPPORT;
 #else
 	#error OS is not defined!
 #endif

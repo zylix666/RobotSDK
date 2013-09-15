@@ -1,0 +1,60 @@
+﻿Build started 2013/9/15 下午 05:38:36.
+     1>Project "C:\Users\vince\Documents\GitHub\RobotSDK\gt_lib\project\win64_dll\libgt\libgt.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\CL.exe /c /IC:\Users\vince\Documents\GitHub\RobotSDK\third_party\svm /I"C:\Users\vince\Documents\GitHub\RobotSDK\third_party\pthread_win32\Pre-built.2\include" /IC:\Users\vince\Documents\GitHub\RobotSDK\gt_lib\project\win64_dll\libgt /IC:\Users\vince\Documents\GitHub\RobotSDK\third_party\hash /IC:\Users\vince\Documents\GitHub\RobotSDK\gt_lib\include /Zi /nologo /W3 /WX- /sdl /O2 /Oi /GL /D WIN32 /D NDEBUG /D _WINDOWS /D _USRDLL /D LIBGT_EXPORTS /D _CRT_SECURE_NO_WARNINGS /D _WINDLL /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Release\\" /Fd"x64\Release\vc110.pdb" /Gd /TP /errorReport:prompt dllmain.cpp
+         dllmain.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\vince\Documents\GitHub\RobotSDK\gt_lib\project\win64_dll\libgt\x64\Release\libgt.dll" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\vince\Documents\GitHub\RobotSDK\gt_lib\project\win64_dll\libgt\x64\Release\libgt.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\vince\Documents\GitHub\RobotSDK\gt_lib\project\win64_dll\libgt\x64\Release\libgt.lib" /MACHINE:X64 /DLL x64\Release\md5c.obj
+         x64\Release\sha1.obj
+         x64\Release\sha256.obj
+         x64\Release\svm.obj
+         x64\Release\gt_array.obj
+         x64\Release\gt_bitmap.obj
+         x64\Release\gt_buffer.obj
+         x64\Release\gt_color.obj
+         x64\Release\gt_config_parser.obj
+         x64\Release\gt_fifo.obj
+         x64\Release\gt_file.obj
+         x64\Release\gt_hash.obj
+         x64\Release\gt_hash_map.obj
+         x64\Release\gt_http.obj
+         x64\Release\gt_httpd.obj
+         x64\Release\gt_image.obj
+         x64\Release\gt_image_mt.obj
+         x64\Release\gt_lib.obj
+         x64\Release\gt_lock.obj
+         x64\Release\gt_log.obj
+         x64\Release\gt_math.obj
+         x64\Release\gt_matrix.obj
+         x64\Release\gt_mem.obj
+         x64\Release\gt_pdf.obj
+         x64\Release\gt_pid.obj
+         x64\Release\gt_runtime.obj
+         x64\Release\gt_semaphore.obj
+         x64\Release\gt_stack.obj
+         x64\Release\gt_string.obj
+         x64\Release\gt_svm.obj
+         x64\Release\gt_template.obj
+         x64\Release\gt_timer_us.obj
+         x64\Release\gt_utf8.obj
+         x64\Release\dllmain.obj
+         x64\Release\libgt.obj
+         x64\Release\stdafx.obj
+            Creating library C:\Users\vince\Documents\GitHub\RobotSDK\gt_lib\project\win64_dll\libgt\x64\Release\libgt.lib and object C:\Users\vince\Documents\GitHub\RobotSDK\gt_lib\project\win64_dll\libgt\x64\Release\libgt.exp
+     1>gt_bitmap.obj : error LNK2001: unresolved external symbol GtFile_New
+     1>gt_bitmap.obj : error LNK2001: unresolved external symbol GtFile_Write
+     1>gt_bitmap.obj : error LNK2001: unresolved external symbol GtFile_Sync
+     1>gt_bitmap.obj : error LNK2001: unresolved external symbol GtFile_Open
+     1>gt_bitmap.obj : error LNK2001: unresolved external symbol GtFile_Read
+     1>gt_bitmap.obj : error LNK2001: unresolved external symbol GtFile_Close
+     1>gt_bitmap.obj : error LNK2001: unresolved external symbol GtFile_GetSize
+     1>gt_lock.obj : error LNK2001: unresolved external symbol __imp_pthread_mutex_init
+     1>gt_lock.obj : error LNK2001: unresolved external symbol __imp_pthread_mutex_destroy
+     1>gt_lock.obj : error LNK2001: unresolved external symbol __imp_pthread_mutex_unlock
+     1>gt_lock.obj : error LNK2001: unresolved external symbol __imp_pthread_mutex_lock
+     1>C:\Users\vince\Documents\GitHub\RobotSDK\gt_lib\project\win64_dll\libgt\x64\Release\libgt.dll : fatal error LNK1120: 11 unresolved externals
+     1>Done Building Project "C:\Users\vince\Documents\GitHub\RobotSDK\gt_lib\project\win64_dll\libgt\libgt.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.37

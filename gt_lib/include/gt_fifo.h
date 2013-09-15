@@ -19,7 +19,8 @@ typedef struct {
 	gt_utf8      elementType[4096];
     void        *data;
     void        *lock;
-	gt_size     elementSize, reservedLength;
+	int          elementSize;
+	int          reservedLength;
 	int fr,bk,length;
     GT_MAGIC_t   magic;
 } GtFifo_t;
@@ -36,7 +37,7 @@ int GtFifo_Unlock(GtFifo_t *fifo);
 
 int GtFifo_Test(GtFifo_t *fifo);
 
-int GtFifo_Init(GtFifo_t *gtFifo, gt_utf8 *elementType, gt_size elementSize, gt_size reservedLength);
+int GtFifo_Init(GtFifo_t *gtFifo, gt_utf8 *elementType, int elementSize, int reservedLength);
 
 gt_utf8 *GtFifo_GetElementType(GtFifo_t *gtFifo);
 

@@ -24,9 +24,11 @@ int GtPdf_InitLib(gt_utf8 *license, gt_utf8 *token) {
 }
 
 GtPdf_t *GtPdf_New() {
+	GtPdf_t *gtPdf;
+
 	if (gtPdfIsInit == 0) return NULL;
 
-	GtPdf_t *gtPdf = (GtPdf_t *)gt_calloc(1, sizeof(GtPdf_t));
+	gtPdf = (GtPdf_t *)gt_calloc(1, sizeof(GtPdf_t));
 	if (gtPdf == NULL) {
 		return NULL;
 	}

@@ -30,9 +30,10 @@ int GtHashMap_InitLib() {
 }
 
 GtHashMap_t *GtHashMap_New() {
+	GtHashMap_t *hashMap;
 	if (gtHashMapIsInit == 0) return NULL;
 
-	GtHashMap_t *hashMap = gt_calloc(1, sizeof(GtHashMap_t));
+	hashMap = gt_calloc(1, sizeof(GtHashMap_t));
 	if (hashMap == NULL) {
 		return NULL;
 	}
@@ -49,11 +50,13 @@ GtHashMap_t *GtHashMap_New() {
 }
 
 int GtHashMap_Free(GtHashMap_t *hashMap) {
+	GtHashMapData_t *cur, *next;
+	int i;
 	if (hashMap == NULL) return GT_ERROR_NULL_POINTER;
 	if (hashMap->magic != GT_MAGIC_HASH_MAP) return GT_ERROR_MAGIC;
 
-	GtHashMapData_t *cur, *next;
-	int i;
+	
+	
 	for (i = 0; i < hashMap->size; i++) {
 		cur = hashMap->data[i];
 		while (cur != NULL) {
@@ -110,11 +113,12 @@ unsigned int gtHashMap_BKDR(char *str, int len) {
 int gtHashMap_CompareData(GtHashMapData_t *data, void *key, int keyLength) {
 	gt_byte *cmp1 = (gt_byte *)data->key;
 	gt_byte *cmp2 = (gt_byte *)key;
+		int i;
 
 	if (data->keySize != keyLength)
 		return 0;
 
-	int i;
+
 	for (i = 0; i < keyLength; i++) {
 		if (cmp1[i] != cmp2[i]) {
 			return 0;
@@ -125,6 +129,13 @@ int gtHashMap_CompareData(GtHashMapData_t *data, void *key, int keyLength) {
 }
 
 int GtHashMap_Append(GtHashMap_t *hashMap, void *key, int keyLength, void *value, int valueLength) {
+		
+	char *id = (char *)key;
+	int bkdr = gtHashMap_BKDR(id, keyLength);
+	GtHashMapData_t *data;
+	int i;
+	int pos;
+	
 	if (hashMap == NULL) return GT_ERROR_PARAMETER_0;
 	if (hashMap->magic != GT_MAGIC_HASH_MAP) return GT_ERROR_PARAMETER_0;
 	if (key == NULL) return GT_ERROR_PARAMETER_1;
@@ -132,11 +143,11 @@ int GtHashMap_Append(GtHashMap_t *hashMap, void *key, int keyLength, void *value
 	if (value == NULL) return GT_ERROR_PARAMETER_3;
 	if (valueLength <= 0) return GT_ERROR_PARAMETER_4;
 
-	char *id = (char *)key;
-	int bkdr = gtHashMap_BKDR(id, keyLength);
+
+	
 
 	// same key exists
-	GtHashMapData_t *data = hashMap->data[bkdr  & (hashMap->size - 1)];
+	data = hashMap->data[bkdr  & (hashMap->size - 1)];
 	while (data != NULL) {
 		if (data->hash == bkdr  && data->keySize == keyLength && gtHashMap_CompareData(data, key, keyLength)) {
 			gt_free(data->value);
@@ -171,7 +182,7 @@ int GtHashMap_Append(GtHashMap_t *hashMap, void *key, int keyLength, void *value
 		
 		hashMap->data = (GtHashMapData_t **)gt_calloc(newLength, sizeof(GtHashMapData_t *));
 		
-		int i;
+		
 		for (i = 0; i < oldLength; i++) {
 			cur = dataOld[i];
 			while (cur != NULL) {
@@ -190,7 +201,7 @@ int GtHashMap_Append(GtHashMap_t *hashMap, void *key, int keyLength, void *value
 		hashMap->size = newLength;
 	}
 
-	int pos = bkdr & (hashMap->size - 1);
+	pos = bkdr & (hashMap->size - 1);
 	data->next = hashMap->data[pos];  // ?
 	hashMap->data[pos] = data;
 	hashMap->length++;
@@ -213,6 +224,11 @@ int GtHashMap_GetLength(GtHashMap_t *hashMap) {
 }
 
 int GtHashMap_Get(GtHashMap_t *hashMap, void *key, int keyLength, void *value, int valueSize) {
+	char *id;
+	int bkdr;
+	int pos;
+	GtHashMapData_t *cur;
+
 	if (hashMap == NULL) return GT_ERROR_PARAMETER_0;
 	if (hashMap->magic != GT_MAGIC_HASH_MAP) return GT_ERROR_PARAMETER_0;
 	if (key == NULL) return GT_ERROR_PARAMETER_1;
@@ -220,11 +236,11 @@ int GtHashMap_Get(GtHashMap_t *hashMap, void *key, int keyLength, void *value, i
 	if (value == NULL) return GT_ERROR_PARAMETER_3;
 	if (valueSize <= 0) return GT_ERROR_PARAMETER_4;
 
-	char *id = (char *)key;
-	int bkdr = gtHashMap_BKDR(id, keyLength);
-	int pos = bkdr & (hashMap->size - 1);
+	id = (char *)key;
+	bkdr = gtHashMap_BKDR(id, keyLength);
+	pos = bkdr & (hashMap->size - 1);
 
-	GtHashMapData_t *cur = hashMap->data[pos];
+	cur = hashMap->data[pos];
 	while (cur != NULL) {
 		gtHashMapSsum ++;
 		if (cur->hash == bkdr && cur->keySize == keyLength && gtHashMap_CompareData(cur, key, keyLength)) {
@@ -242,11 +258,14 @@ int GtHashMap_Get(GtHashMap_t *hashMap, void *key, int keyLength, void *value, i
 }
 
 void test(GtHashMap_t *hashMap) {
-	fprintf(stderr,"gtHashMapSsum = %d / query = %d\n", gtHashMapSsum, 1000000);
-	int mx=0, cnt;
+		int mx=0, cnt;
+		int i;
 	GtHashMapData_t *cur;
+	fprintf(stderr,"gtHashMapSsum = %d / query = %d\n", gtHashMapSsum, 1000000);
 
-	int i;
+
+
+
 	for (i = 0; i < hashMap->size; i++) {
 		cur = hashMap->data[i];
 		cnt = 0;

@@ -39,6 +39,8 @@ int GtMem_InitLib() {
 }
 
 void *gt_malloc(int size) {
+	void *ptr;
+
 	if (size < 0) {
 		gtMemMallocBad ++;
 		return NULL;
@@ -49,7 +51,7 @@ void *gt_malloc(int size) {
 		return NULL;
 	}
 
-	void *ptr = malloc(size);
+	ptr = malloc(size);
 	if (ptr == NULL) {
 		gtMemMallocBad ++;
 		return NULL;
@@ -61,6 +63,8 @@ void *gt_malloc(int size) {
 }
 
 void *gt_calloc(int num, int size) {
+	void *ptr;
+
 	if (num < 0) {
 		gtMemCallocBad ++;
 		return NULL;
@@ -81,7 +85,7 @@ void *gt_calloc(int num, int size) {
 		return NULL;
 	}
 
-	void *ptr = calloc(num, size);
+	ptr = calloc(num, size);
 	if (ptr == NULL) {
 		gtMemCallocBad ++;
 		return NULL;
@@ -93,6 +97,8 @@ void *gt_calloc(int num, int size) {
 }
 
 void *gt_realloc(void *ptr, int size) {
+	void *ptrNew;
+
 	if (size < 0) {
 		gtMemReallocBad ++;
 		if (ptr != NULL) {
@@ -109,7 +115,7 @@ void *gt_realloc(void *ptr, int size) {
 		return NULL;
 	}
 
-	void *ptrNew = realloc(ptr, size);
+	ptrNew = realloc(ptr, size);
 	if (ptrNew == NULL) {
 		gtMemReallocBad ++;
 		return NULL;

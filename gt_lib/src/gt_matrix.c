@@ -24,9 +24,11 @@ int GtMatrix_InitLib() {
 }
 
 GtMatrix_t *GtMatrix_New() {
+	GtMatrix_t *matrix;
+
 	if (gtMatrixIsInit == 0) return NULL;
 	
-	GtMatrix_t *matrix = (GtMatrix_t *)gt_calloc(1, sizeof(GtMatrix_t));
+	matrix = (GtMatrix_t *)gt_calloc(1, sizeof(GtMatrix_t));
 	if (matrix == NULL) {
 		return NULL;
 	}
@@ -89,12 +91,13 @@ int GtMatrix_Test(GtMatrix_t *matrix) {
 }
 
 int GtMatrix_Init(GtMatrix_t *matrix, int n, int m) {
+	int i;
 	if (matrix == NULL) return GT_ERROR_PARAMETER_0;
 	if (matrix->magic != GT_MAGIC_MATRIX) return GT_ERROR_PARAMETER_0;
 	if (n <= 0) return GT_ERROR_PARAMETER_1;
 	if (m <= 0) return GT_ERROR_PARAMETER_2;
 
-	int i;
+	
 
 	if (matrix->value != NULL) {
 		for (i = 0; i < n; i++) {
@@ -154,6 +157,12 @@ int GtMatrix_Get(GtMatrix_t *matrix, int n, int m, double *value) {
 }
 
 int GtMatrix_Add(GtMatrix_t *matrix_a, GtMatrix_t *matrix_b, GtMatrix_t *matrix_ab) {
+	
+	int n = matrix_a->n;
+	int m = matrix_a->m;
+	int i;
+	int j;
+
 	if (matrix_a == NULL) return GT_ERROR_PARAMETER_0;
 	if (matrix_a->magic != GT_MAGIC_MATRIX) return GT_ERROR_PARAMETER_0;
 	if (matrix_b == NULL) return GT_ERROR_PARAMETER_1;
@@ -168,10 +177,7 @@ int GtMatrix_Add(GtMatrix_t *matrix_a, GtMatrix_t *matrix_b, GtMatrix_t *matrix_
 	if (matrix_a->n != matrix_b->n) return GT_ERROR_PARAMETER_1;
 	if (matrix_a->m != matrix_b->m) return GT_ERROR_PARAMETER_1;
 
-	int n = matrix_a->n;
-	int m = matrix_a->m;
-	int i;
-	int j;
+
 
 	GtMatrix_Init(matrix_ab, n, m);
 
@@ -184,6 +190,13 @@ int GtMatrix_Add(GtMatrix_t *matrix_a, GtMatrix_t *matrix_b, GtMatrix_t *matrix_
 }
 
 int GtMatrix_Mul(GtMatrix_t *matrix_a, GtMatrix_t *matrix_b, GtMatrix_t *matrix_ab) {
+
+	int n = matrix_a->n;
+	int m = matrix_b->m;
+	int i;
+	int j;
+	int k;
+
 	if (matrix_a == NULL) return GT_ERROR_PARAMETER_0;
 	if (matrix_a->magic != GT_MAGIC_MATRIX) return GT_ERROR_PARAMETER_0;
 	if (matrix_b == NULL) return GT_ERROR_PARAMETER_1;
@@ -196,11 +209,7 @@ int GtMatrix_Mul(GtMatrix_t *matrix_a, GtMatrix_t *matrix_b, GtMatrix_t *matrix_
 	if (matrix_b->m < 0)  return GT_ERROR_PARAMETER_1;
 	if (matrix_a->m != matrix_b->n) return GT_ERROR_PARAMETER_1;
 
-	int n = matrix_a->n;
-	int m = matrix_b->m;
-	int i;
-	int j;
-	int k;
+
 
 	GtMatrix_Init(matrix_ab, n, m);
 

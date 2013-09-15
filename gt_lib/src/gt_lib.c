@@ -31,6 +31,9 @@ extern "C"
 static int gtLibIsInit = 0;
    
 GT_API int GtLib_InitLib() {
+
+	int ret;
+
 	if (gtLibIsInit == 1) {
 		return GT_OK_INIT_ALREADY;
 	}
@@ -39,7 +42,7 @@ GT_API int GtLib_InitLib() {
 	//printf("GtLib_InitLib ++\n");
 
 	/* Init core libraries. ++ */
-	int ret;
+
 
 	ret = GtLog_InitLib();
 	if (ret < 0) {

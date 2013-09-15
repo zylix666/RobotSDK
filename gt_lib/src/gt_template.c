@@ -24,9 +24,11 @@ int GtTemplate_InitLib() {
 }
 
 GtTemplate_t *GtTemplate_New() {
+	GtTemplate_t *template;
+
 	if (gtTemplateIsInit == 0) return NULL;
 	
-	GtTemplate_t *template = (GtTemplate_t *)gt_calloc(1, sizeof(GtTemplate_t));
+	template = (GtTemplate_t *)gt_calloc(1, sizeof(GtTemplate_t));
 	if (template == NULL) {
 		return NULL;
 	}

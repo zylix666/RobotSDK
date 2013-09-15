@@ -45,6 +45,8 @@
 
 #if defined(GT_CONFIG_WINDOWS)
 	#include <windows.h>
+	#include <io.h>
+	#include <fcntl.h>
 #else
 	#include <unistd.h>
 	#include <semaphore.h>

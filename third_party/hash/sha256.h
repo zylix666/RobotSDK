@@ -1,6 +1,11 @@
 #ifndef _SHA256_H_
 #define _SHA256_H_
 
+#ifdef __cplusplus
+extern "C" 
+{
+#endif
+
 typedef struct {
    unsigned char data[64];
    unsigned long datalen;
@@ -13,5 +18,9 @@ void sha256_init(SHA256_CTX *ctx);
 void sha256_update(SHA256_CTX *ctx, unsigned char data[], unsigned long len);
 void sha256_final(SHA256_CTX *ctx, unsigned char hash[]);
 
+#ifdef __cplusplus
+}
+#endif
 
 #endif
+

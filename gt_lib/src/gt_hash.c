@@ -17,19 +17,24 @@ extern "C"
 #endif
 
 int GtMd5_GetString(char *str, int strSize, void *data, int dataLength) {
+
+
+	unsigned char res[20];
+	MD5_CTX md5;
+	
+	int i;
 	if (str == NULL) return GT_ERROR_PARAMETER_0;
 	if (strSize < 33) return GT_ERROR_PARAMETER_1;
 	if (data == NULL) return GT_ERROR_PARAMETER_2;
 	if (dataLength <= 0) return GT_ERROR_PARAMETER_3;
 
-	unsigned char res[20];
 
-	MD5_CTX md5;
+
+
 	MD5Init(&md5);
 	MD5Update(&md5, (unsigned char *)data, dataLength);
 	MD5Final(res,&md5);
 
-	int i;
 	for (i = 0; i < 16; i++) {
 		sprintf(str + (i * 2), "%02x", res[i]);
 	}
@@ -38,17 +43,19 @@ int GtMd5_GetString(char *str, int strSize, void *data, int dataLength) {
 }
 
 int GtSha1_GetString(char *str, int strSize, void *data, int dataLength) {
+	SHA1Context sha;
+	int i;
 	if (str == NULL) return GT_ERROR_PARAMETER_0;
 	if (strSize < 41) return GT_ERROR_PARAMETER_1;
 	if (data == NULL) return GT_ERROR_PARAMETER_2;
 	if (dataLength <= 0) return GT_ERROR_PARAMETER_3;
 
-	SHA1Context sha;
+
 	SHA1Reset(&sha);
 	SHA1Input(&sha, (const unsigned char *)data, dataLength);
 	SHA1Result(&sha);
 
-	int i;
+
 	for (i = 0; i < 5; i++) {
 		sprintf(str + (i * 8), "%08x", sha.Message_Digest[i]);
 	}
@@ -57,19 +64,22 @@ int GtSha1_GetString(char *str, int strSize, void *data, int dataLength) {
 }
 
 int GtSha256_GetString(char *str, int strSize, void *data, int dataLength) {
+	unsigned char res[40];
+	SHA256_CTX ctx;
+	int i;
 	if (str == NULL) return GT_ERROR_PARAMETER_0;
 	if (strSize < 65) return GT_ERROR_PARAMETER_1;
 	if (data == NULL) return GT_ERROR_PARAMETER_2;
 	if (dataLength <= 0) return GT_ERROR_PARAMETER_3;
 	
-	unsigned char res[40];
+
 	
-	SHA256_CTX ctx;
+
 	sha256_init(&ctx);
 	sha256_update(&ctx, (unsigned char *)data, dataLength);
 	sha256_final(&ctx,res);
 
-	int i;
+
 	for (i = 0; i < 32; i++) {
 		sprintf(str + (i * 2), "%02x", res[i]);
 	}

@@ -23,19 +23,30 @@ int GtBitmap_InitLib() {
 }
 
 int GtBitmap_Load(GtImage_t *image, gt_byte *bitmapBuffer, int bitmapBufferLength) {
+
+	
+	GT_BITMAPFILEHEADER *bmfh;
+  	GT_BITMAPINFOHEADER *bmih;
+	 GT_COLOR_MODE_t colorMode = GT_COLOR_MODE_UNKNOWN; 
+	int row_align;
+  	int i;
+    int j;
+    int image_shift;
+  	int buf_shift;
+  	int dataSize;
+	gt_byte *data;
+
 	if (gtBitmapIsInit == 0) return GT_ERROR_NOT_INIT;
 	if (image == NULL) return GT_ERROR_PARAMETER_0;
 	if (image->magic != GT_MAGIC_IMAGE) return GT_ERROR_PARAMETER_0;
 	if (bitmapBuffer == NULL) return GT_ERROR_PARAMETER_1;
 	if (bitmapBufferLength <= 0) return GT_ERROR_PARAMETER_2;
 
-	GT_BITMAPFILEHEADER *bmfh;
-  	GT_BITMAPINFOHEADER *bmih;
 
   	bmfh = (GT_BITMAPFILEHEADER *)bitmapBuffer;
   	bmih = (GT_BITMAPINFOHEADER *)(bitmapBuffer + sizeof(GT_BITMAPFILEHEADER));
 
-  	GT_COLOR_MODE_t colorMode = GT_COLOR_MODE_UNKNOWN; 
+
 
   	if (bmih->biBitCount == 24) {
   		colorMode = GT_COLOR_MODE_RGB888;
@@ -47,14 +58,7 @@ int GtBitmap_Load(GtImage_t *image, gt_byte *bitmapBuffer, int bitmapBufferLengt
 
   	GtImage_InitImage(image, bmih->biWidth, bmih->biHeight, colorMode);
 
-  	int row_align;
-  	int i;
-    int j;
-    int image_shift;
-  	int buf_shift;
-  	int dataSize;
-
-  	gt_byte *data = bitmapBuffer + bmfh->bfOffBits;
+	data = bitmapBuffer + bmfh->bfOffBits;
 
   	if (colorMode == GT_COLOR_MODE_RGB888) {
 		row_align = (bmih->biWidth * 3) % 4;
@@ -97,37 +101,42 @@ int GtBitmap_Load(GtImage_t *image, gt_byte *bitmapBuffer, int bitmapBufferLengt
 }
 
 int GtBitmap_LoadFile(GtImage_t *image, gt_utf8 *path) {
+
+	GtFile_t *gtFile;
+	gt_byte *fileData;
+	gt_int64 fileSize;
+	int ret ;
 	if (gtBitmapIsInit == 0) return GT_ERROR_NOT_INIT;
 	if (image == NULL) return GT_ERROR_PARAMETER_0;
 	if (image->magic != GT_MAGIC_IMAGE) return GT_ERROR_PARAMETER_0;
 	if (path == NULL) return GT_ERROR_PARAMETER_1;
 
-	GtFile_t *gtFile = GtFile_New();
+	gtFile = GtFile_New();
 	if (gtFile == NULL) {
 		return GT_ERROR_NEW_OBJECT;
 	}
 
-	int ret = GtFile_Open(gtFile, path, GT_FILE_O_RDONLY);
+	ret = GtFile_Open(gtFile, path, GT_FILE_O_RDONLY);
 	if (ret <= 0) {
 		return ret;
 	}
 
-	gt_int64 fileSize = GtFile_GetSize(gtFile);
+	fileSize = GtFile_GetSize(gtFile);
 	if (fileSize < 0) {
-		return fileSize;
+		return (int)fileSize;
 	}
 
-	gt_byte *fileData = gt_calloc(1, fileSize);
+	fileData = gt_calloc(1, (int)fileSize);
 	if (fileData == NULL) {
 		return GT_ERROR_NO_MEMORY;
 	}
 
-	ret = GtFile_Read(gtFile, fileData, fileSize);
+	ret = (int)GtFile_Read(gtFile, fileData, (int)fileSize);
 	if (ret <= 0) {
 		return ret;
 	}
 
-	ret = GtBitmap_Load(image, fileData, fileSize);
+	ret = (int)GtBitmap_Load(image, fileData, (int)fileSize);
 	if (ret <= 0) {
 		return ret;
 	}
@@ -138,11 +147,7 @@ int GtBitmap_LoadFile(GtImage_t *image, gt_utf8 *path) {
 }
 
 int GtBitmap_Save(GtImage_t *image, gt_byte **bitmapBuffer) {
-	if (gtBitmapIsInit == 0) return GT_ERROR_NOT_INIT;
-	if (image == NULL) return GT_ERROR_PARAMETER_0;
-	if (image->magic != GT_MAGIC_IMAGE) return GT_ERROR_PARAMETER_0;
-	if (bitmapBuffer == NULL) return GT_ERROR_PARAMETER_1;
-
+	
 	gt_byte *buf;
 	gt_byte *data;
 	int i;
@@ -153,6 +158,16 @@ int GtBitmap_Save(GtImage_t *image, gt_byte **bitmapBuffer) {
 	GT_BITMAPFILEHEADER *bmfh;
 	GT_BITMAPINFOHEADER *bmih;
 	int buf_len = 0;
+	gt_byte *palette;
+	int palette_shift;
+	
+	
+	if (gtBitmapIsInit == 0) return GT_ERROR_NOT_INIT;
+	if (image == NULL) return GT_ERROR_PARAMETER_0;
+	if (image->magic != GT_MAGIC_IMAGE) return GT_ERROR_PARAMETER_0;
+	if (bitmapBuffer == NULL) return GT_ERROR_PARAMETER_1;
+
+
 
 	if (image->colorMode == GT_COLOR_MODE_RGB888) {
 		row_align = (image->width * 3) % 4;
@@ -232,8 +247,8 @@ int GtBitmap_Save(GtImage_t *image, gt_byte **bitmapBuffer) {
 		bmih->biClrImportant = 0;
 
 		// Palette 256 x 4
-		gt_byte *palette = buf + bmfh->bfOffBits;
-		int palette_shift;
+		palette = buf + bmfh->bfOffBits;
+
 		for (i = 0; i < 256; i ++) {
 			palette_shift = i * 4;
 			palette[palette_shift] = i;
@@ -263,28 +278,32 @@ int GtBitmap_Save(GtImage_t *image, gt_byte **bitmapBuffer) {
 }
 
 int GtBitmap_SaveFile(GtImage_t *image, gt_utf8 *path) {
+	int ret;
+	GtFile_t *gtFile;
+	gt_byte *fileData;
+	int fileSize;
 	if (gtBitmapIsInit == 0) return GT_ERROR_NOT_INIT;
 	if (image == NULL) return GT_ERROR_PARAMETER_0;
 	if (image->magic != GT_MAGIC_IMAGE) return GT_ERROR_PARAMETER_0;
 	if (path == NULL) return GT_ERROR_PARAMETER_1;
 
-	GtFile_t *gtFile = GtFile_New();
+	gtFile = GtFile_New();
 	if (gtFile == NULL) {
 		return GT_ERROR_NEW_OBJECT;
 	}
 
-	int ret = GtFile_Open(gtFile, path, GT_FILE_O_WRONLY | GT_FILE_O_CREAT | GT_FILE_O_TRUNC);
+	ret = GtFile_Open(gtFile, path, GT_FILE_O_WRONLY | GT_FILE_O_CREAT | GT_FILE_O_TRUNC);
 	if (ret <= 0) {
 		return ret;
 	}
 
-	gt_byte *fileData;
-	int fileSize = GtBitmap_Save(image, &fileData);
+	
+	fileSize = GtBitmap_Save(image, &fileData);
 	if (fileSize <= 0) {
 		return fileSize;
 	}
 
-	ret = GtFile_Write(gtFile, fileData, fileSize);
+	ret = (int)GtFile_Write(gtFile, fileData, (int)fileSize);
 	if (ret <= 0) {
 		return ret;
 	}

@@ -24,13 +24,16 @@ int GtBuffer_InitLib() {
 }
 
 GtBuffer_t *GtBuffer_New(int size, int align) {
+	
+	    int ret;
+		GtBuffer_t *buffer;
 	if (gtBufferIsInit == 0) return NULL;
 	if (size < 0) return NULL;
 	if (align < 0) return NULL;
 
-    int ret;
+
     
-    GtBuffer_t *buffer = gt_calloc(1, sizeof(GtBuffer_t));
+    buffer = gt_calloc(1, sizeof(GtBuffer_t));
     if (buffer == NULL) {
     	return NULL;
     }
@@ -85,6 +88,8 @@ int GtBuffer_Unlock(GtBuffer_t *buffer) {
 }
 
 int GtBuffer_SetSize(GtBuffer_t *buffer, int size) {
+	int rest;
+	gt_byte *bufTemp = NULL;
 	if (buffer == NULL) return GT_ERROR_PARAMETER_0;
 	if (buffer->magic != GT_MAGIC_BUFFER) return GT_ERROR_PARAMETER_0;
 	if (size <= 0) return GT_ERROR_PARAMETER_1;
@@ -93,10 +98,10 @@ int GtBuffer_SetSize(GtBuffer_t *buffer, int size) {
 		return GT_OK;
 	}
     
-	int rest = size % buffer->align;
+	rest = size % buffer->align;
 	size += rest;
     
-	gt_byte *bufTemp = NULL;
+	
     
 	bufTemp = (gt_byte *) gt_malloc(size);
 	if (bufTemp == NULL) {
@@ -123,13 +128,15 @@ int GtBuffer_SetSize(GtBuffer_t *buffer, int size) {
 }
 
 int GtBuffer_Append(GtBuffer_t *buffer, gt_byte *buf, int length) {
+	int ret;
+	int length_new = buffer->length + length;
 	if (buffer == NULL) return GT_ERROR_PARAMETER_0;
 	if (buffer->magic != GT_MAGIC_BUFFER) return GT_ERROR_PARAMETER_0;
 	if (buf == NULL) return GT_ERROR_PARAMETER_1;
 	if (length < 0) return GT_ERROR_PARAMETER_2;
 
-	int ret;
-	int length_new = buffer->length + length;
+	
+
 	if (length_new > buffer->size) {
 		ret = GtBuffer_SetSize(buffer, length_new);
 		if (ret <= 0) {

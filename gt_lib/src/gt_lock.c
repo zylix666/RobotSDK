@@ -26,9 +26,12 @@ int GtLock_InitLib() {
 }
 
 GtLock_t *GtLock_New() {
+	GtLock_t *lock;
+	int ret;
+
     if (gtLockIsInit == 0) return NULL;
 
-    GtLock_t *lock = gt_calloc(1, sizeof(GtLock_t));
+    lock = gt_calloc(1, sizeof(GtLock_t));
     if (lock == NULL) {
         return NULL;
     }
@@ -38,7 +41,7 @@ GtLock_t *GtLock_New() {
         return NULL;
     }
     
-    int ret = pthread_mutex_init((pthread_mutex_t *)lock->mutex, NULL);
+    ret = pthread_mutex_init((pthread_mutex_t *)lock->mutex, NULL);
     if (ret != 0) {
         gt_free(lock->mutex);
         gt_free(lock);

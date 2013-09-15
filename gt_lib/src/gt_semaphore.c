@@ -22,17 +22,22 @@ int GtSemaphore_InitLib() {
     
     return GT_OK;
 }
-    
+
+#if !defined(GT_CONFIG_WINDOWS)
+
 GtSemaphore_t *GtSemaphore_New(int count) {
+	GtSemaphore_t *semaphore;
+	int ret;
+
     if (gtSemaphoreIsInit == 0) return NULL;
     if (count < 0) return NULL;
 
-    GtSemaphore_t *semaphore = gt_calloc(1, sizeof(GtSemaphore_t));
+    semaphore = gt_calloc(1, sizeof(GtSemaphore_t));
     if (semaphore == NULL) {
         return NULL;
     }
     
-    int ret = sem_init((sem_t *)&semaphore->sem, 0, count);
+    ret = sem_init((sem_t *)&semaphore->sem, 0, count);
     if (ret != 0) {
         gt_free(semaphore);
         return NULL;
@@ -73,6 +78,8 @@ int GtSemaphore_Unlock(GtSemaphore_t *semaphore) {
     
     return GT_OK;
 }
+
+#endif
 
 #ifdef __cplusplus
 }

@@ -24,9 +24,11 @@ int GtPid_InitLib() {
 }
 
 GtPid_t *GtPid_New() {
+	GtPid_t *pid;
+
 	if (gtPidIsInit == 0) return NULL;
 	
-	GtPid_t *pid = (GtPid_t *)gt_calloc(1, sizeof(GtPid_t));
+	pid = (GtPid_t *)gt_calloc(1, sizeof(GtPid_t));
 	if (pid == NULL) {
 		return NULL;
 	}
@@ -86,10 +88,12 @@ int GtPid_Test(GtPid_t *pid) {
 }
 
 double GtPid_Pid(GtPid_t *pid, double feedback, double desire, double p, double i, double d, double timeSec) {
+	double error;
+	
 	if (pid == NULL) return GT_ERROR_PARAMETER_0;
 	if (pid->magic != GT_MAGIC_PID) return GT_ERROR_PARAMETER_0;
 
-	double error = desire - feedback;
+	error = desire - feedback;
 	//GT_LOGI("error = %f",error );
 
 	feedback = p * error + i * (error + pid->errorOld) * timeSec / 2 + d * (error - pid->errorOld)/timeSec;

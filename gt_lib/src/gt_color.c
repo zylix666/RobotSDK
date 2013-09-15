@@ -24,9 +24,11 @@ int GtColor_InitLib() {
 }
 
 GtColor_t *GtColor_New() {
+	
+	GtColor_t *color ;
 	if (gtColorIsInit == 0) return NULL;
 
-	GtColor_t *color = (GtColor_t *)gt_calloc(1, sizeof(GtColor_t));
+	color = (GtColor_t *)gt_calloc(1, sizeof(GtColor_t));
 	if (color == NULL) {
 		return NULL;
 	}
