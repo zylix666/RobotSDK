@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		04FA0B5517E58BA2007D903C /* svm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04FA0B5317E58BA2007D903C /* svm.cpp */; };
 		04FA0B5617E58BA2007D903C /* svm.h in Headers */ = {isa = PBXBuildFile; fileRef = 04FA0B5417E58BA2007D903C /* svm.h */; };
+		04FA0C1E17E58D4A007D903C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04FA0C1917E58D4A007D903C /* InfoPlist.strings */; };
+		04FA0C1F17E58D4A007D903C /* gt_config.h in Headers */ = {isa = PBXBuildFile; fileRef = 04FA0C1B17E58D4A007D903C /* gt_config.h */; };
+		04FA0C2017E58D4A007D903C /* gtlib_ios_framework-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04FA0C1C17E58D4A007D903C /* gtlib_ios_framework-Info.plist */; };
+		04FA0C2117E58D4A007D903C /* gtlib_ios_framework-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 04FA0C1D17E58D4A007D903C /* gtlib_ios_framework-Prefix.pch */; };
 		04FAE79817E58AFE007D903C /* gt_array.h in Headers */ = {isa = PBXBuildFile; fileRef = 04FAE74F17E58AFE007D903C /* gt_array.h */; };
 		04FAE79917E58AFE007D903C /* gt_bitmap.h in Headers */ = {isa = PBXBuildFile; fileRef = 04FAE75017E58AFE007D903C /* gt_bitmap.h */; };
 		04FAE79A17E58AFE007D903C /* gt_buffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 04FAE75117E58AFE007D903C /* gt_buffer.h */; };
@@ -78,7 +82,6 @@
 		04FAE7DD17E58AFE007D903C /* gt_template.c in Sources */ = {isa = PBXBuildFile; fileRef = 04FAE79517E58AFE007D903C /* gt_template.c */; };
 		04FAE7DE17E58AFE007D903C /* gt_timer_us.c in Sources */ = {isa = PBXBuildFile; fileRef = 04FAE79617E58AFE007D903C /* gt_timer_us.c */; };
 		04FAE7DF17E58AFE007D903C /* gt_utf8.c in Sources */ = {isa = PBXBuildFile; fileRef = 04FAE79717E58AFE007D903C /* gt_utf8.c */; };
-		04FAE7E117E58B18007D903C /* gt_config.h in Headers */ = {isa = PBXBuildFile; fileRef = 04FAE7E017E58B18007D903C /* gt_config.h */; };
 		04FAFB0917E58B3F007D903C /* md5.h in Headers */ = {isa = PBXBuildFile; fileRef = 04FAE7E417E58B39007D903C /* md5.h */; };
 		04FAFB0A17E58B3F007D903C /* md5c.c in Sources */ = {isa = PBXBuildFile; fileRef = 04FAE7E517E58B39007D903C /* md5c.c */; };
 		04FAFB0B17E58B3F007D903C /* sha1.c in Sources */ = {isa = PBXBuildFile; fileRef = 04FAE7E617E58B39007D903C /* sha1.c */; };
@@ -86,12 +89,15 @@
 		04FAFB0D17E58B3F007D903C /* sha256.c in Sources */ = {isa = PBXBuildFile; fileRef = 04FAE7E817E58B39007D903C /* sha256.c */; };
 		04FAFB0E17E58B3F007D903C /* sha256.h in Headers */ = {isa = PBXBuildFile; fileRef = 04FAE7E917E58B39007D903C /* sha256.h */; };
 		5622731517E3F9C200CC4184 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5622731417E3F9C100CC4184 /* Foundation.framework */; };
-		5622731B17E3F9C200CC4184 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5622731917E3F9C200CC4184 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		04FA0B5317E58BA2007D903C /* svm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = svm.cpp; sourceTree = "<group>"; };
 		04FA0B5417E58BA2007D903C /* svm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = svm.h; sourceTree = "<group>"; };
+		04FA0C1A17E58D4A007D903C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		04FA0C1B17E58D4A007D903C /* gt_config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gt_config.h; sourceTree = "<group>"; };
+		04FA0C1C17E58D4A007D903C /* gtlib_ios_framework-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "gtlib_ios_framework-Info.plist"; sourceTree = "<group>"; };
+		04FA0C1D17E58D4A007D903C /* gtlib_ios_framework-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "gtlib_ios_framework-Prefix.pch"; sourceTree = "<group>"; };
 		04FAE74F17E58AFE007D903C /* gt_array.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gt_array.h; sourceTree = "<group>"; };
 		04FAE75017E58AFE007D903C /* gt_bitmap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gt_bitmap.h; sourceTree = "<group>"; };
 		04FAE75117E58AFE007D903C /* gt_buffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gt_buffer.h; sourceTree = "<group>"; };
@@ -161,7 +167,6 @@
 		04FAE79517E58AFE007D903C /* gt_template.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gt_template.c; sourceTree = "<group>"; };
 		04FAE79617E58AFE007D903C /* gt_timer_us.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gt_timer_us.c; sourceTree = "<group>"; };
 		04FAE79717E58AFE007D903C /* gt_utf8.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gt_utf8.c; sourceTree = "<group>"; };
-		04FAE7E017E58B18007D903C /* gt_config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gt_config.h; sourceTree = "<group>"; };
 		04FAE7E417E58B39007D903C /* md5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = md5.h; sourceTree = "<group>"; };
 		04FAE7E517E58B39007D903C /* md5c.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = md5c.c; sourceTree = "<group>"; };
 		04FAE7E617E58B39007D903C /* sha1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sha1.c; sourceTree = "<group>"; };
@@ -170,9 +175,6 @@
 		04FAE7E917E58B39007D903C /* sha256.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sha256.h; sourceTree = "<group>"; };
 		5622731117E3F9C100CC4184 /* gtlib_ios_framework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework.static; includeInIndex = 0; path = gtlib_ios_framework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5622731417E3F9C100CC4184 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		5622731817E3F9C200CC4184 /* gtlib_ios_framework-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "gtlib_ios_framework-Info.plist"; sourceTree = "<group>"; };
-		5622731A17E3F9C200CC4184 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		5622731C17E3F9C200CC4184 /* gtlib_ios_framework-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "gtlib_ios_framework-Prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +196,17 @@
 				04FA0B5417E58BA2007D903C /* svm.h */,
 			);
 			path = svm;
+			sourceTree = "<group>";
+		};
+		04FA0C1817E58D4A007D903C /* ios_framework */ = {
+			isa = PBXGroup;
+			children = (
+				04FA0C1917E58D4A007D903C /* InfoPlist.strings */,
+				04FA0C1B17E58D4A007D903C /* gt_config.h */,
+				04FA0C1C17E58D4A007D903C /* gtlib_ios_framework-Info.plist */,
+				04FA0C1D17E58D4A007D903C /* gtlib_ios_framework-Prefix.pch */,
+			);
+			path = ios_framework;
 			sourceTree = "<group>";
 		};
 		04FAE74E17E58AFE007D903C /* include */ = {
@@ -307,10 +320,10 @@
 		5622730417E3F9C100CC4184 = {
 			isa = PBXGroup;
 			children = (
+				04FA0C1817E58D4A007D903C /* ios_framework */,
 				04FAE74E17E58AFE007D903C /* include */,
 				04FAE77517E58AFE007D903C /* src */,
 				04FAE7E217E58B39007D903C /* third_party */,
-				5622731617E3F9C200CC4184 /* gtlib_ios_framework */,
 				5622731317E3F9C100CC4184 /* Frameworks */,
 				5622731217E3F9C100CC4184 /* Products */,
 			);
@@ -330,25 +343,6 @@
 				5622731417E3F9C100CC4184 /* Foundation.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		5622731617E3F9C200CC4184 /* gtlib_ios_framework */ = {
-			isa = PBXGroup;
-			children = (
-				04FAE7E017E58B18007D903C /* gt_config.h */,
-				5622731717E3F9C200CC4184 /* Supporting Files */,
-			);
-			path = gtlib_ios_framework;
-			sourceTree = "<group>";
-		};
-		5622731717E3F9C200CC4184 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				5622731817E3F9C200CC4184 /* gtlib_ios_framework-Info.plist */,
-				5622731917E3F9C200CC4184 /* InfoPlist.strings */,
-				5622731C17E3F9C200CC4184 /* gtlib_ios_framework-Prefix.pch */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -396,11 +390,12 @@
 				04FAE7BB17E58AFE007D903C /* gt_timer_us.h in Headers */,
 				04FAE7BC17E58AFE007D903C /* gt_type.h in Headers */,
 				04FAE7BD17E58AFE007D903C /* gt_utf8.h in Headers */,
-				04FAE7E117E58B18007D903C /* gt_config.h in Headers */,
 				04FAFB0917E58B3F007D903C /* md5.h in Headers */,
 				04FAFB0C17E58B3F007D903C /* sha1.h in Headers */,
 				04FAFB0E17E58B3F007D903C /* sha256.h in Headers */,
 				04FA0B5617E58BA2007D903C /* svm.h in Headers */,
+				04FA0C1F17E58D4A007D903C /* gt_config.h in Headers */,
+				04FA0C2117E58D4A007D903C /* gtlib_ios_framework-Prefix.pch in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,8 +454,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5622731B17E3F9C200CC4184 /* InfoPlist.strings in Resources */,
 				04FAE7CB17E58AFE007D903C /* gt_image_cuda.cu in Resources */,
+				04FA0C1E17E58D4A007D903C /* InfoPlist.strings in Resources */,
+				04FA0C2017E58D4A007D903C /* gtlib_ios_framework-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -553,10 +549,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		5622731917E3F9C200CC4184 /* InfoPlist.strings */ = {
+		04FA0C1917E58D4A007D903C /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				5622731A17E3F9C200CC4184 /* en */,
+				04FA0C1A17E58D4A007D903C /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
