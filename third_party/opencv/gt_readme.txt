@@ -10,7 +10,7 @@
 
 =========================================================================
 #if you encounter a problem about freak.cpp
-#them go to release/modules//features2d/CMakeFiles/opencv_features2d.dir/ to edit build.make
+#them go to release/modules/features2d/CMakeFiles/opencv_features2d.dir/ to edit build.make
 #Find freak.cpp in Building CXX object XXX block and add "-O0" to $(CXX_DEFINES) $(CXX_FLAGS) 
 =========================================================================
 
