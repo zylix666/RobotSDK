@@ -4,16 +4,19 @@
 # THIS SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY.
 
 
-ROOT = /home/evan/RobotSDK
-OUTPUT = gt_httpd
+ROOT = /home/mingta/RobotSDK
+OUTPUT = app
 OUTPUTDIR = $(ROOT)/gt_lib/project/linux64_so_console
 
 
 SOURCES = \
 main.c
 
+
 # Include directory settings
-IDIR        := -I$(ROOT)/gt_lib/include -I$(ROOT)/third_party/hash -I$(ROOT)/gt_lib/project/linux64_so_console
+IDIR        := -I$(ROOT)/gt_lib/include -I$(ROOT)/gt_lib/project/linux64_so_console -I$(ROOT)/third_party/hash
+
+
 # Lib directory settings
 LDFLAGS := -L$(ROOT)/gt_lib/project/linux64_so -Wl,-rpath=$(ROOT)/gt_lib/project/linux64_so
 
