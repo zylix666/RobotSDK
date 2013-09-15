@@ -4,9 +4,9 @@
 # THIS SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY.
 
 
-ROOT = /home/mingta/gt_httpd_linux
-OUTPUT = gt_httpd
-OUTPUTDIR = $(ROOT)/gt_lib/project/console_linux
+ROOT = /home/mingta/RobotSDK
+OUTPUT = app
+OUTPUTDIR = $(ROOT)/gt_lib/project/linux64_console
 
 
 SOURCES = \
@@ -40,7 +40,7 @@ main.c \
 
 
 # Include directory settings
-IDIR        := -I$(ROOT)/gt_lib/include -I$(ROOT)/third_party/hash
+IDIR        := -I$(ROOT)/gt_lib/include -I$(OUTPUTDIR) -I$(ROOT)/third_party/hash
 
 
 THIS_MAKEFILE_PATH:=$(word $(words $(MAKEFILE_LIST)),$(MAKEFILE_LIST))
