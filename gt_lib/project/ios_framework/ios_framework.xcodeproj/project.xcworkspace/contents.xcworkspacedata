@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:gtlib_ios_framework.xcodeproj">
+      location = "self:ios_framework.xcodeproj">
    </FileRef>
 </Workspace>

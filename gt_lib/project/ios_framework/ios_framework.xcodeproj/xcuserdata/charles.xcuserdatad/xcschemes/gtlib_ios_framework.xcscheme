@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5622731017E3F9C100CC4184"
-               BuildableName = "gtlib_ios_framework.framework"
-               BlueprintName = "gtlib_ios_framework"
-               ReferencedContainer = "container:gtlib_ios_framework.xcodeproj">
+               BuildableName = "ios_framework.framework"
+               BlueprintName = "ios_framework"
+               ReferencedContainer = "container:ios_framework.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
