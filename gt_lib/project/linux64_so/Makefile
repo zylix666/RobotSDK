@@ -4,7 +4,7 @@
 # THIS SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY.
 
 
-ROOT = /home/evan/RobotSDK
+ROOT = /home/mingta/RobotSDK
 OUTPUT = libgt.so
 OUTPUTDIR = $(ROOT)/gt_lib/project/linux64_so
 
@@ -40,7 +40,7 @@ SOURCES = \
 
 
 # Include directory settings
-IDIR        := -I$(ROOT)/gt_lib/include -I$(ROOT)/third_party/hash -I$(ROOT)/gt_lib/project/linux64_so
+IDIR        := -I$(ROOT)/gt_lib/include -I$(OUTPUTDIR) -I$(ROOT)/third_party/hash
 
 
 THIS_MAKEFILE_PATH:=$(word $(words $(MAKEFILE_LIST)),$(MAKEFILE_LIST))
