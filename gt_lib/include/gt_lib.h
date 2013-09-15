@@ -8,10 +8,16 @@
 #ifndef __GT_LIB_H__
 #define __GT_LIB_H__
 
-#define GT_LIB_VERSION "1.10.0"
-#define GT_LIB_DATETIME (201308260036ul)
+#define GT_LIB_VERSION "1.11.0"
+#define GT_LIB_DATETIME (201309141758ul)
 
 #include "gt_config.h"
+
+#ifdef GT_CONFIG_EXPORT_API
+  #define GT_API __declspec(dllexport)
+#else
+  #define GT_API
+#endif
 
 /* Common libraries ++ */
 #include <stdio.h>
@@ -84,7 +90,7 @@ extern "C"
 {
 #endif
     
-int GtLib_InitLib();
+GT_API int GtLib_InitLib();
 
 #ifdef __cplusplus
 }
