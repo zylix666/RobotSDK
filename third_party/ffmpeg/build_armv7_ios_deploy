@@ -1,0 +1,11 @@
+#!/bin/tcsh -f
+
+mv libavcodec/libavcodec.a armv7/
+mv libavdevice/libavdevice.a armv7/
+mv libavformat/libavformat.a armv7/
+mv libavutil/libavutil.a armv7/
+mv libswscale/libswscale.a armv7/
+
+rm lib/*.a
+
+cp armv7/*.a lib/
