@@ -4,7 +4,7 @@
 # THIS SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY.
 
 
-ROOT = /home/mingta/RobotSDK
+ROOT = /Users/Jing/Desktop/RobotSDK
 OUTPUT = app
 OUTPUTDIR = $(ROOT)/gt_lib/project/linux64_console
 
@@ -34,13 +34,14 @@ main.c \
 ../../src/gt_utf8.c \
 ../../src/gt_matrix.c \
 ../../src/gt_template.c \
+../../src/gt_sound.c \
 ../../../third_party/hash/sha1.c \
 ../../../third_party/hash/sha256.c \
 ../../../third_party/hash/md5c.c
 
 
 # Include directory settings
-IDIR        := -I$(ROOT)/gt_lib/include -I$(OUTPUTDIR) -I$(ROOT)/third_party/hash
+IDIR        := -I$(ROOT)/gt_lib/include -I$(OUTPUTDIR) -I$(ROOT)/third_party/hash -I$(ROOT)/third_party/libsnd
 
 
 THIS_MAKEFILE_PATH:=$(word $(words $(MAKEFILE_LIST)),$(MAKEFILE_LIST))

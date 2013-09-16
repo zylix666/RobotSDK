@@ -1,0 +1,9 @@
+main ++
+Start to FFT the audio data...number of FFT frames 32768
+this uses zeros-padding FFT for real input which means speed can be improved
+sampling rate: 16000
+bits per sample: 16
+n_channel: 1
+dataLength: 31592
+main fre: 140.625000
+main --

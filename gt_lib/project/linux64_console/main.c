@@ -9,7 +9,7 @@
 #include <gt_http.h>
 #include <gt_httpd.h>
 #include <gt_matrix.h>
-
+#include <gt_sound.h>
 static int callback_test_index(void *httpdPtr, void *requestPtr, void *responsePtr) {
 
 	GT_LOGI("callback_test_index");
@@ -23,7 +23,8 @@ static int callback_test_index2(void *httpdPtr, void *requestPtr, void *response
 
 	return GT_OK;
 }
-
+double data[1024];
+double complex_data[1024];
 int main () {
 	printf("main ++\n");
 
@@ -34,7 +35,7 @@ int main () {
 		printf("GtLib_InitLib = %d\n", ret);
 		return 1;
 	}
-
+/*
 	ret = GtHttpd_InitLib(NULL, NULL);
 	if (ret <= 0) {
 		GT_LOGE("GtHttpd_InitLib = %d\n", ret);
@@ -58,7 +59,7 @@ int main () {
 
 	GT_LOGI("callback_test_index = %d", callback_test_index);
 	GT_LOGI("callback_test_index2 = %d", callback_test_index2);
-
+	
 	GT_LOGI("httpdCallback = %d", httpdCallback);
 
 	httpdCallback(NULL, NULL, NULL);
@@ -74,7 +75,13 @@ int main () {
 	//GtMatrix_Init(matrix, 20, 10);
 
 	GtMatrix_Free(matrix);
-
+*/
+	GtSound_t a; 
+	GtSound_LoadFromFile(&a , "test.wav");
+	double main_fre = GtSound_GetMainTone(&a);
+	printf("main freqency of this wav: %lf\n" , main_fre);
+	GtSound_PrintInfo(&a);
 	GT_LOGI("main --");
+	
 	return 0;
 }

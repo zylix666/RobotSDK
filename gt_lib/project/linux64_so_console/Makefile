@@ -4,7 +4,7 @@
 # THIS SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY.
 
 
-ROOT = /home/mingta/RobotSDK
+ROOT = /Users/Jing/Desktop/RobotSDK
 OUTPUT = app
 OUTPUTDIR = $(ROOT)/gt_lib/project/linux64_so_console
 
